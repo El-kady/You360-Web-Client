@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
   ) {
   }
 
+  login(){
+    console.log("xxxx")
+  }
+
   public ngOnInit() {
-    console.log(12);
+    //to do
   }
 }
