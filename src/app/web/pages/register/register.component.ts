@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router,
               private _alert: AlertService,
               private _auth: AuthService) {
+
   }
 
   register() {

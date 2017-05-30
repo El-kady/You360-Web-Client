@@ -12,38 +12,31 @@
 
           </div><!-- /.topbar-left -->
           <div class="topbar-right">
-            <ul class="nav navbar-nav">
-              <li>
-                <a [routerLink]="['/register']" class="btn btn-link">Register</a>
-              </li>
-            </ul>
-            <div class="user">
+            <div *ngIf="currentUser.logged" class="user">
               <div class="user-image">
                 <img class="img-responsive img-circle" src="/assets/images/others/user.png" alt="Image">
               </div>
               <div class="dropdown user-dropdown">
-                Hello,
-                <a href="#" aria-expanded="true">Jhon Player<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <a href="#" aria-expanded="true">{{currentUser.getName()}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                 <ul class="sub-menu text-left">
-                  <li><a href="#">My Profile</a></li>
-                  <li><a href="#">Settings</a></li>
                   <li><a href="#">Log Out</a></li>
                 </ul>
               </div>
             </div>
-            <div class="searchNlogin">
-              <ul>
-                <li class="search-icon"><i class="fa fa-search"></i></li>
 
-                <li class="dropdown language-dropdown">
-                  <a href="#" aria-expanded="true"><span class="change-text">En</span> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                  <ul class="sub-menu text-center">
-                    <li><a href="#">EN</a></li>
-                    <li><a href="#">FR</a></li>
-                    <li><a href="#">GR</a></li>
-                    <li><a href="#">ES</a></li>
-                  </ul>
+            <div [ngClass]="{'searchNlogin': true, 'expanded': searchInputExpanded}">
+              <ul>
+                <li *ngIf="!currentUser.logged">
+                  <a [routerLink]="['/login']">
+                    <i class="fa fa-user"></i> Login
+                  </a>
                 </li>
+                <li *ngIf="!currentUser.logged">
+                  <a [routerLink]="['/register']">
+                    <i class="fa fa-users"></i> Register
+                  </a>
+                </li>
+                <li class="search-icon"(click)="toggleSearchInput()"><i class="fa fa-search"></i></li>
               </ul>
               <div class="search">
                 <form role="form">

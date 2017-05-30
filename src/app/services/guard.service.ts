@@ -4,14 +4,14 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class CanActivateGuard implements CanActivate {
-  private connected: boolean = false;
+  private logged: boolean = false;
 
   constructor(
     private router: Router,
     private _auth: AuthService
   ) {
     this._auth.currentUser.subscribe((user) => {
-      this.connected = user.connected;
+      this.logged = user.logged;
     });
   }
 

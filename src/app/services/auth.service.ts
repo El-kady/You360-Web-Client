@@ -4,20 +4,26 @@ import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
 import {Config} from '../app.constants';
-import { Observable, ReplaySubject } from 'rxjs/Rx';
+import {Observable, ReplaySubject} from 'rxjs/Rx';
 
 @Injectable()
 export class AuthService {
-  public currentUser: ReplaySubject<User> = new ReplaySubject<User>( 1 );
+  public currentUser: ReplaySubject<User> = new ReplaySubject<User>(1);
 
   constructor(public http: Http,
               public authHttp: AuthHttp,
               private router: Router) {
-    // TODO
   }
 
   public setCurrentUser(user: User) {
-    // this.currentUser.next( user );
+    this.currentUser.next(user);
+  }
+
+  getUser(data) {
+    return this.http.post(Config.API_ENDPOINT + '/api/login',
+      JSON.stringify({email: data.email, password: data.password}),
+      {headers: new Headers({'Content-Type': 'application/json'})}
+    ).map((response: Response) => response.json());
   }
 
   createUser(data) {
@@ -26,7 +32,7 @@ export class AuthService {
 
   public logout() {
     let user = new User();
-    user.connected = false;
+    user.logged = false;
     this.setCurrentUser(user);
     this.router.navigate(['login']);
   }
