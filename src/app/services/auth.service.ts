@@ -19,7 +19,6 @@ export class AuthService {
     this.currentUser.next(user);
   }
 
-
   public getUser(data) {
     return this.http.post(Config.API_ENDPOINT + '/api/login',
       JSON.stringify({email: data.email, password: data.password}),

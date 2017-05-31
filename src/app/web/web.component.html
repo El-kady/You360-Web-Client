@@ -8,9 +8,7 @@
           </a>
         </div>
         <div class="col-sm-9">
-          <div class="topbar-left">
 
-          </div><!-- /.topbar-left -->
           <div class="topbar-right">
             <div *ngIf="currentUser.logged" class="user">
               <div class="user-image">
@@ -19,6 +17,7 @@
               <div class="dropdown user-dropdown">
                 <a href="#" aria-expanded="true">{{currentUser.getName()}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                 <ul class="sub-menu text-left">
+                  <li><a [routerLink]="['/admin']">Admin Panel</a></li>
                   <li><a (click)="logout()">Log Out</a></li>
                 </ul>
               </div>

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private _alert: AlertService,
-              private _auth: AuthService) {
+              public _auth: AuthService) {
   }
 
   login() {

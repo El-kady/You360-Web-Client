@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
+import {User} from '../models/user';
+
+
 @Injectable()
 export class CanActivateGuard implements CanActivate {
   private logged: boolean = false;
@@ -14,9 +17,6 @@ export class CanActivateGuard implements CanActivate {
       (user) => {
         this.logged = user.logged;
       },
-      (error) => {
-        console.log(error);
-      }
     );
   }
 
@@ -24,7 +24,6 @@ export class CanActivateGuard implements CanActivate {
     if ( !this.logged ) {
        this.router.navigate( [ 'login' ] );
     }
-    console.log(this.logged);
     return this.logged;
   }
 }
