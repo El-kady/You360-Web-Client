@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+
+import {CanActivateGuard} from '../services/guard.service';
 
 import {WebComponent} from './web.component';
-import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
+import {HomeComponent} from './pages/home/home.component';
+import {RegisterComponent} from './pages/register/register.component';
+import {LoginComponent} from './pages/login/login.component';
+import {UploadComponent} from './pages/upload/upload.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +15,11 @@ export const routes: Routes = [
       {
         component: HomeComponent,
         path: ''
+      },
+      {
+        canActivate: [CanActivateGuard],
+        component: UploadComponent,
+        path: 'upload',
       },
       {
         component: RegisterComponent,
@@ -29,7 +37,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: []
+  exports: [RouterModule]
 })
-export class WebRoutingModule { }
+export class WebRoutingModule {
+}

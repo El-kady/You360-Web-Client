@@ -19,14 +19,15 @@ export class AuthService {
     this.currentUser.next(user);
   }
 
-  getUser(data) {
+
+  public getUser(data) {
     return this.http.post(Config.API_ENDPOINT + '/api/login',
       JSON.stringify({email: data.email, password: data.password}),
       {headers: new Headers({'Content-Type': 'application/json'})}
     ).map((response: Response) => response.json());
   }
 
-  createUser(data) {
+  public createUser(data) {
     return this.http.post(Config.API_ENDPOINT + '/api/register', data).map((response: Response) => response.json());
   }
 

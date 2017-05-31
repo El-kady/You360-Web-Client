@@ -21,4 +21,9 @@ export class WebComponent {
   toggleSearchInput() {
     this.searchInputExpanded = !this.searchInputExpanded;
   }
+
+  logout() {
+    this._auth.logout();
+    localStorage.removeItem('token');
+  }
 }

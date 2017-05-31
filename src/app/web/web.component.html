@@ -19,7 +19,7 @@
               <div class="dropdown user-dropdown">
                 <a href="#" aria-expanded="true">{{currentUser.getName()}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                 <ul class="sub-menu text-left">
-                  <li><a href="#">Log Out</a></li>
+                  <li><a (click)="logout()">Log Out</a></li>
                 </ul>
               </div>
             </div>
@@ -34,6 +34,11 @@
                 <li *ngIf="!currentUser.logged">
                   <a [routerLink]="['/register']">
                     <i class="fa fa-users"></i> Register
+                  </a>
+                </li>
+                <li>
+                  <a [routerLink]="['/upload']">
+                    <i class="fa fa-upload"></i> Upload
                   </a>
                 </li>
                 <li class="search-icon"(click)="toggleSearchInput()"><i class="fa fa-search"></i></li>

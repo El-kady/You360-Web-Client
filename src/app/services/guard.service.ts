@@ -10,17 +10,21 @@ export class CanActivateGuard implements CanActivate {
     private router: Router,
     private _auth: AuthService
   ) {
-    this._auth.currentUser.subscribe((user) => {
-      this.logged = user.logged;
-    });
+    this._auth.currentUser.subscribe(
+      (user) => {
+        this.logged = user.logged;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   public canActivate() {
-    return true;
-    // test here if you user is logged
-    // if ( !this.connected ) {
-    //   this.router.navigate( [ 'login' ] );
-    // }
-    // return this.connected;
+    if ( !this.logged ) {
+       this.router.navigate( [ 'login' ] );
+    }
+    console.log(this.logged);
+    return this.logged;
   }
 }
