@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
+import {CanActivateGuard} from '../services/guard.service';
+
 import {AdminComponent} from './admin.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 
@@ -12,6 +14,8 @@ export const routes: Routes = [
         path: ''
       },
     ],
+    canActivate: [CanActivateGuard],
+    data: { roles: ['admin'] },
     component: AdminComponent,
     path: '',
   }

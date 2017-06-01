@@ -2,19 +2,13 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {Http, RequestOptions} from '@angular/http';
-import {AuthHttp, AuthConfig} from 'angular2-jwt';
+
+import {SharedModule} from '../shared.module';
 import {AdminRoutingModule} from './admin-routing.module';
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
-}
-
-import {AuthService} from '../services/auth.service';
 import {CanActivateGuard} from '../services/guard.service';
 
 let services = [
-  AuthService,
   CanActivateGuard
 ];
 
@@ -28,21 +22,17 @@ let pages = [
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     HttpModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ],
   declarations: [
     AdminComponent,
     ...pages
   ],
   providers: [
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    },
     ...services
   ],
   bootstrap: [AdminComponent]

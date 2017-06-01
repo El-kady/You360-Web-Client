@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { AuthService } from './auth.service';
 
 import {User} from '../models/user';
@@ -20,10 +20,13 @@ export class CanActivateGuard implements CanActivate {
     );
   }
 
-  public canActivate() {
-    if ( !this.logged ) {
-       this.router.navigate( [ 'login' ] );
-    }
-    return this.logged;
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return true;
+    // if ( !this.logged ) {
+    //    this.router.navigate( [ 'login' ] );
+    // }
+    // let roles = route.data['roles'] as Array<string>;
+    // console.log(roles)
+    // return this.logged;
   }
 }

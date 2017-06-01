@@ -1,19 +1,44 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
-import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Http, RequestOptions} from '@angular/http';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
-import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
 
-import {AuthService} from './services/auth.service';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
 
+import {AuthService} from './services/auth.service';
+import {AlertService} from './services/alert.service';
+
+const services = [
+  AuthService,
+  AlertService
+];
+
+// Helpers
+import {AlertComponent} from './helpers/alert/alert.component';
+
+// Shared Components
+import {UserMenuComponent} from './components/user-menu/user-menu.component';
+
+const components = [
+  AlertComponent,
+  UserMenuComponent
+];
+
 @NgModule({
-  imports: [HttpModule],
-  declarations: []
+  imports: [RouterModule, HttpModule, CommonModule],
+  declarations: [
+    ...components
+  ],
+  exports: [
+    ...components
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
@@ -25,7 +50,7 @@ export class SharedModule {
           useFactory: authHttpServiceFactory,
           deps: [Http, RequestOptions]
         },
-        AuthService,
+        ...services
       ]
     };
   }

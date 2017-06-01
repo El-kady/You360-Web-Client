@@ -1,3 +1,56 @@
-admin
-<router-outlet></router-outlet>
-admin
+<div class="main-wrapper tr-page-top homepage">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 tr-sidebar tr-sticky">
+        <div class="theiaStickySidebar">
+          <div class="tr-menu sidebar-menu">
+            <nav class="navbar navbar-default">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                  <img class="img-responsive" src="/assets/images/logo.png" alt="Logo">
+                </a>
+              </div><!-- /navbar-header -->
+
+              <div class="collapse navbar-collapse" id="navbar-collapse">
+                <span class="discover">Administration</span>
+                <ul class="nav navbar-nav">
+                  <li class="active dropdown"><a data-toggle="dropdown" href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i>Home</a>
+                    <ul class="sub-menu">
+                      <li class="active"><a href="index.html">Home Default</a></li>
+                      <li><a href="index1.html">Home Version-1</a></li>
+                      <li><a href="index2.html">Home Version-2</a></li>
+                      <li><a href="index3.html">Home Version-3</a></li>
+                      <li><a href="index4.html">Home Version-4</a></li>
+                      <li><a href="index5.html">Home Version-5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="index2.html"><i class="fa-google-wallet" aria-hidden="true"></i>Business</a></li>
+                </ul>
+              </div>
+            </nav><!-- /navbar -->
+          </div><!-- /left-memu -->
+        </div><!-- /.theiaStickySidebar -->
+      </div>
+      <div class="col-sm-9">
+        <div class="tr-topbar clearfix">
+
+
+          <div class="topbar-right">
+            <app-user-menu [user]="currentUser"></app-user-menu>
+          </div><!-- /.topbar-right -->
+        </div><!-- /.tr-topbar -->
+
+
+        <app-alert></app-alert>
+        <router-outlet></router-outlet>
+
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container-fulid -->
+</div><!-- /.main-wrapper -->

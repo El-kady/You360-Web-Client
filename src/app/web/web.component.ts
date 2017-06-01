@@ -11,8 +11,8 @@ import {AuthService} from '../services/auth.service';
 })
 
 export class WebComponent {
-  public currentUser: User = new User();
-  public searchInputExpanded = false;
+  private currentUser: User = new User();
+  private searchInputExpanded = false;
 
   constructor(private _auth: AuthService) {
     this._auth.currentUser.subscribe((user: User) => this.currentUser = user);
