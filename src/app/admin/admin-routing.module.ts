@@ -5,17 +5,38 @@ import {CanActivateGuard} from '../services/guard.service';
 
 import {AdminComponent} from './admin.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {UsersComponent} from './pages/users/users.component';
+import {UserFormComponent} from './pages/users/user-form/user-form.component';
 
 export const routes: Routes = [
   {
     children: [
       {
         component: DashboardComponent,
-        path: ''
+        path: 'dashboard'
       },
+      {
+        component: UsersComponent,
+        path: 'users',
+        pathMatch: 'full'
+      },
+      {
+        component: UserFormComponent,
+        path: 'users/new',
+      },
+      {
+        component: UserFormComponent,
+        path: 'users/:id'
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard'
+      }
     ],
     canActivate: [CanActivateGuard],
-    data: { roles: ['admin'] },
+    data: {
+      roles: ['admin']
+    },
     component: AdminComponent,
     path: '',
   }

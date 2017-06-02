@@ -137,7 +137,7 @@ input:focus, textarea:focus, select:focus,
 }
 
 .section-title h1 {
-	font-size: 16px;
+	font-size: 25px;
 	margin: 0 0 30px;
 	text-transform: uppercase;
 	position: relative;
@@ -2651,7 +2651,7 @@ a:hover i.fa-rss,
 	overflow: hidden;
 }
 
-.contact-form {
+.segment {
 	background-color: #fff;
 	border-radius: 5px;
 	padding:30px;

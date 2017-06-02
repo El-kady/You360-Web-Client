@@ -12,6 +12,18 @@ import {AuthService} from '../services/auth.service';
 
 export class AdminComponent {
   private currentUser: User = new User();
+  private sideBarItems = [
+    {
+      title: 'Dashboard',
+      icon: 'fa-area-chart',
+      route: '/admin/dashboard'
+    },
+    {
+      title: 'Users',
+      icon: 'fa-users',
+      route: '/admin/users'
+    },
+  ];
 
   constructor(private _auth: AuthService) {
     this._auth.currentUser.subscribe((user: User) => this.currentUser = user);

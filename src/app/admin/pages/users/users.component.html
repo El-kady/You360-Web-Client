@@ -1,0 +1,55 @@
+<div class="tr-section">
+  <div class="section-title">
+    <h1>
+      <i class="fa fa-users"></i> Users
+      <button [routerLink]="['new']" type="button" class="btn btn-sm btn-success pull-right">
+        <i class="fa fa-plus"></i> Add
+      </button>
+    </h1>
+  </div>
+
+
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="[{ name: 'firstName' },{name:'lastName'},{name:'email'}]"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [externalPaging]="true"
+    [count]="page.totalElements"
+    [offset]="page.pageNumber"
+    [limit]="page.size"
+    (page)='setPage($event)'>
+    <ngx-datatable-column name="First Name">
+      <template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Last Name">
+      <template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Email">
+      <template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Actions" sortable="false" prop="id">
+      <template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        {{column.name}}
+      </template>
+      <template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button md-icon-button [routerLink]="[value]">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button md-icon-button (click)="removeUser(value)">
+          <i class="fa fa-remove"></i>
+        </button>
+      </template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+
+</div>

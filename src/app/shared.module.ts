@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
+  return new AuthHttp(new AuthConfig({noTokenScheme : true}), http, options);
 }
 
 import {AuthService} from './services/auth.service';
@@ -21,7 +21,7 @@ const services = [
 ];
 
 // Helpers
-import {AlertComponent} from './helpers/alert/alert.component';
+import {AlertComponent} from './components/alert/alert.component';
 
 // Shared Components
 import {UserMenuComponent} from './components/user-menu/user-menu.component';

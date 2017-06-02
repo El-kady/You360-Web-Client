@@ -23,14 +23,14 @@ export class AlertService {
     });
   }
 
-  success(message: string, keepAfterNavigationChange = false) {
+  success(message, keepAfterNavigationChange = false) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
-    this.subject.next({type: 'success', text: message});
+    this.subject.next({type: 'success', message: message});
   }
 
-  error(message: string, keepAfterNavigationChange = false) {
+  error(message, keepAfterNavigationChange = false) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
-    this.subject.next({type: 'error', text: message});
+    this.subject.next({type: 'error', message: message});
   }
 
   getMessage(): Observable<any> {
