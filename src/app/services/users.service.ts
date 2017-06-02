@@ -20,12 +20,20 @@ export class UsersService {
     return this.authHttp.post(Config.API_ENDPOINT + '/api/users', JSON.stringify(user), {headers: new Headers({'Content-Type': 'application/json'})}).map(res => res.json());
   }
 
+  public updateUser(user) {
+    return this.authHttp.put(Config.API_ENDPOINT + '/api/users/' + user.id, JSON.stringify(user)).map(res => res.json());
+  }
+
   public getUser(id) {
     return this.authHttp.get(Config.API_ENDPOINT + '/api/users/' + id).map(res => res.json());
   }
 
-  listUsers(page: Page) {
-    return this.authHttp.get(Config.API_ENDPOINT + '/api/users').map(
+  public deleteUser(id) {
+    return this.authHttp.delete(Config.API_ENDPOINT + '/api/users/' + id).map(res => res.json());
+  }
+
+  public listUsers(page: Page) {
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/users?page=' + page.pageNumber + '&limit=' + page.size).map(
       res => {
         const data = res.json();
         let pagedData = new PagedData<User>();

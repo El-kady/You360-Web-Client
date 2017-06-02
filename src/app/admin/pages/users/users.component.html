@@ -12,7 +12,7 @@
   <ngx-datatable
     class="material"
     [rows]="rows"
-    [columns]="[{ name: 'firstName' },{name:'lastName'},{name:'email'}]"
+    [columns]="[]"
     [columnMode]="'force'"
     [headerHeight]="50"
     [footerHeight]="50"
@@ -45,7 +45,7 @@
         <button md-icon-button [routerLink]="[value]">
           <i class="fa fa-edit"></i>
         </button>
-        <button md-icon-button (click)="removeUser(value)">
+        <button md-icon-button (click)="remove(value)">
           <i class="fa fa-remove"></i>
         </button>
       </template>

@@ -65,10 +65,19 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+
   public save() {
     this.loading = true;
-    this._users.addUser(this.form.value)
-      .subscribe(
+    let result;
+    let userValue = this.form.value;
+
+    if (userValue.id){
+      result = this._users.updateUser(userValue);
+    }else{
+      result = this._users.addUser(userValue);
+    }
+
+    result.subscribe(
         data => {
           this.router.navigate(['admin/users']);
         },

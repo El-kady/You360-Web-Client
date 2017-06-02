@@ -1,4 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {User} from '../../../models/user';
 import {UsersService} from '../../../services/users.service';
@@ -13,9 +14,13 @@ export class UsersComponent implements OnInit, OnDestroy {
   page = new Page();
   rows = new Array<User>();
 
-  constructor(private _users: UsersService) {
+  constructor(
+    private _users: UsersService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
     this.page.pageNumber = 0;
-    this.page.size = 20;
+    this.page.size = 5;
   }
 
   public ngOnInit() {
@@ -27,6 +32,12 @@ export class UsersComponent implements OnInit, OnDestroy {
     this._users.listUsers(this.page).subscribe(pagedData => {
       this.page = pagedData.page;
       this.rows = pagedData.data;
+    });
+  }
+
+  public remove(id){
+    this._users.deleteUser(id).subscribe(data => {
+      this.setPage({offset: this.page.pageNumber});
     });
   }
 
