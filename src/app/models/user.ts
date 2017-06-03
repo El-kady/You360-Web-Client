@@ -1,4 +1,5 @@
 export class User {
+    public _id: string;
     public firstName: string;
     public lastName: string;
     public email: string;
@@ -7,6 +8,7 @@ export class User {
     public logged: boolean = false;
 
     public constructor( data: any = {}) {
+        this._id = data._id || '';
         this.firstName = data.firstName || '';
         this.lastName = data.lastName || '';
         this.email = data.email || '';

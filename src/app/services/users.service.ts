@@ -20,8 +20,8 @@ export class UsersService {
     return this.authHttp.post(Config.API_ENDPOINT + '/api/users', JSON.stringify(user), {headers: new Headers({'Content-Type': 'application/json'})}).map(res => res.json());
   }
 
-  public updateUser(user) {
-    return this.authHttp.put(Config.API_ENDPOINT + '/api/users/' + user.id, JSON.stringify(user)).map(res => res.json());
+  public updateUser(id, user) {
+    return this.authHttp.put(Config.API_ENDPOINT + '/api/users/' + id, JSON.stringify(user)).map(res => res.json());
   }
 
   public getUser(id) {

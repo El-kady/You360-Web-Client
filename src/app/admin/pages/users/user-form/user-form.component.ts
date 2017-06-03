@@ -16,35 +16,35 @@ import {BasicValidators} from '../../../../helpers/basic-validators';
 export class UserFormComponent implements OnInit {
 
   form: FormGroup;
+  create = true;
   title: string;
   loading = false;
   user: User = new User();
+  rules = {
+    firstName: ['', [
+      Validators.required,
+      Validators.minLength(3)
+    ]],
+    lastName: ['', [
+      Validators.required,
+      Validators.minLength(3)
+    ]],
+    email: ['', [
+      Validators.required,
+      BasicValidators.email
+    ]],
+    password: ['', [
+      Validators.required,
+      Validators.minLength(8)
+    ]]
+  };
 
   constructor(formBuilder: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
               private _alert: AlertService,
               private _users: UsersService) {
-    this.form = formBuilder.group({
-      firstName: ['', [
-        Validators.required,
-        Validators.minLength(3)
-      ]],
-      lastName: ['', [
-        Validators.required,
-        Validators.minLength(3)
-      ]],
-      email: ['', [
-        Validators.required,
-        BasicValidators.email
-      ]],
-      password: ['', [
-        Validators.required,
-        Validators.minLength(8)
-      ]],
-
-    });
-
+    this.form = formBuilder.group(this.rules);
   }
 
   public ngOnInit() {
@@ -56,6 +56,7 @@ export class UserFormComponent implements OnInit {
           .subscribe(
             user => {
               this.user = user;
+              this.create = false;
             },
             response => {
               console.log(response);
@@ -65,16 +66,15 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-
   public save() {
     this.loading = true;
     let result;
-    let userValue = this.form.value;
+    const userValue = this.form.value;
 
-    if (userValue.id) {
-      result = this._users.updateUser(userValue);
-    } else {
+    if (this.create) {
       result = this._users.addUser(userValue);
+    } else {
+      result = this._users.updateUser(this.user._id, userValue);
     }
 
     result.subscribe(
