@@ -22,8 +22,5 @@ export class WebComponent {
     this.searchInputExpanded = !this.searchInputExpanded;
   }
 
-  logout() {
-    this._auth.logout();
-    localStorage.removeItem('token');
-  }
+
 }

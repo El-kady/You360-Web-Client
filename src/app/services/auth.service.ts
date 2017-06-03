@@ -13,10 +13,16 @@ export class AuthService {
   constructor(public http: Http,
               public authHttp: AuthHttp,
               private router: Router) {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (token !== '' && user && 'logged' in user && user.logged === true) {
+      this.currentUser.next(new User(user));
+    }
   }
 
   public setCurrentUser(user: User) {
     this.currentUser.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   public getUser(data) {
@@ -34,6 +40,10 @@ export class AuthService {
     let user = new User();
     user.logged = false;
     this.setCurrentUser(user);
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
     this.router.navigate(['login']);
   }
 }

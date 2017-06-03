@@ -24,10 +24,12 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this._auth.getUser(this.model).subscribe(
       data => {
-        localStorage.setItem('token', data.token);
+
         let user = new User(data.user);
         user.logged = true;
         this._auth.setCurrentUser(user);
+
+        localStorage.setItem('token', data.token);
 
         this._alert.success('You have been logged in.', true);
         this.router.navigate(['']);
