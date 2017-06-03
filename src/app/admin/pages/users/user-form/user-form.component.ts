@@ -40,7 +40,7 @@ export class UserFormComponent implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(8)
       ]],
 
     });
@@ -71,21 +71,21 @@ export class UserFormComponent implements OnInit {
     let result;
     let userValue = this.form.value;
 
-    if (userValue.id){
+    if (userValue.id) {
       result = this._users.updateUser(userValue);
-    }else{
+    } else {
       result = this._users.addUser(userValue);
     }
 
     result.subscribe(
-        data => {
-          this.router.navigate(['admin/users']);
-        },
-        error => {
-          this._alert.error(error.json());
-          this.loading = false;
-        }
-      );
+      data => {
+        this.router.navigate(['admin/users']);
+      },
+      error => {
+        this._alert.error(error.json());
+        this.loading = false;
+      }
+    );
   }
 
 }

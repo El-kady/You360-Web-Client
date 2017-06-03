@@ -17,10 +17,16 @@ export class AlertComponent implements OnInit {
       if (message) {
         message.items = [];
         if (typeof message.message === 'string') {
-          message.items.push({text : message.message});
-        }else if (typeof message.message === 'object'){
-          for (let key in message.message){
-            message.items.push({text :  message.message[key].param + ' ' + message.message[key].msg});
+          message.items.push({text: message.message});
+        } else if (typeof message.message === 'object') {
+          if ('message' in message.message) {
+            message.items.push({text: message.message['message']});
+          } else {
+            for (let key in message.message) {
+              if (key in message.message) {
+                message.items.push({text: message.message[key].param + ' ' + message.message[key].msg});
+              }
+            }
           }
         }
         this.message = message;
