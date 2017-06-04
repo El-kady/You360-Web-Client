@@ -3,6 +3,10 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
+import { Ng2UploaderModule } from 'ng2-uploader';
+import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
+
+
 import {SharedModule} from '../shared.module';
 import {WebRoutingModule} from './web-routing.module';
 
@@ -33,10 +37,13 @@ let pages = [
     FormsModule,
     HttpModule,
     WebRoutingModule,
+    Ng2UploaderModule
   ],
   declarations: [
     WebComponent,
-    ...pages
+    ...pages,
+    //UPLOAD_DIRECTIVES
+
   ],
   providers: [
     ...services

@@ -22,32 +22,32 @@
     [limit]="page.size"
     (page)='setPage($event)'>
     <ngx-datatable-column name="First Name">
-      <template let-value="value" ngx-datatable-cell-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
         {{value}}
-      </template>
+      </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column name="Last Name">
-      <template let-value="value" ngx-datatable-cell-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
         {{value}}
-      </template>
+      </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column name="Email">
-      <template let-value="value" ngx-datatable-cell-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
         {{value}}
-      </template>
+      </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column name="Actions" sortable="false" prop="_id">
-      <template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
         {{column.name}}
-      </template>
-      <template let-row="row" let-value="value" ngx-datatable-cell-template>
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
         <button md-icon-button [routerLink]="[value]">
           <i class="fa fa-edit"></i>
         </button>
         <button md-icon-button (click)="remove(value)">
           <i class="fa fa-remove"></i>
         </button>
-      </template>
+      </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>
 

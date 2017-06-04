@@ -12,15 +12,13 @@ import {Page} from '../../../helpers/page';
 
 export class UsersComponent implements OnInit, OnDestroy {
   page = new Page();
-  rows = new Array<User>();
+  rows = new Array();
 
-  constructor(
-    private _users: UsersService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {
+  constructor(private _users: UsersService,
+              private router: Router,
+              private route: ActivatedRoute,) {
     this.page.pageNumber = 0;
-    this.page.size = 5;
+    this.page.size = 2;
   }
 
   public ngOnInit() {
@@ -35,7 +33,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     });
   }
 
-  public remove(id){
+  public remove(id) {
     this._users.deleteUser(id).subscribe(data => {
       this.setPage({offset: this.page.pageNumber});
     });

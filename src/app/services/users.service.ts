@@ -33,7 +33,7 @@ export class UsersService {
   }
 
   public listUsers(page: Page) {
-    return this.authHttp.get(Config.API_ENDPOINT + '/api/users?page=' + page.pageNumber + '&limit=' + page.size).map(
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/users?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
       res => {
         const data = res.json();
         let pagedData = new PagedData<User>();
