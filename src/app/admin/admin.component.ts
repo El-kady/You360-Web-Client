@@ -19,6 +19,11 @@ export class AdminComponent {
       route: '/admin/dashboard'
     },
     {
+      title: 'Categories',
+      icon: 'fa-list',
+      route: '/admin/categories'
+    },
+    {
       title: 'Users',
       icon: 'fa-users',
       route: '/admin/users'

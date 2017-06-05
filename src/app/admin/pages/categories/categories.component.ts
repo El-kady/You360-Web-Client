@@ -1,20 +1,20 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 
-import {User} from '../../../models/user';
-import {UsersService} from '../../../services/users.service';
+import {Category} from '../../../models/category';
+import {CategoriesService} from '../../../services/categories.service';
 import {Page} from '../../../helpers/page';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html'
+  selector: 'app-categories',
+  templateUrl: './categories.component.html'
 })
 
-export class UsersComponent implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit, OnDestroy {
   page = new Page();
   rows = new Array();
 
-  constructor(private _users: UsersService,
+  constructor(private _categories: CategoriesService,
               private router: Router,
               private route: ActivatedRoute) {
     this.page.pageNumber = 0;
@@ -27,14 +27,14 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   setPage(pageInfo) {
     this.page.pageNumber = pageInfo.offset;
-    this._users.listUsers(this.page).subscribe(pagedData => {
+    this._categories.list(this.page).subscribe(pagedData => {
       this.page = pagedData.page;
       this.rows = pagedData.data;
     });
   }
 
   public remove(id) {
-    this._users.deleteUser(id).subscribe(data => {
+    this._categories.delete(id).subscribe(data => {
       this.setPage({offset: this.page.pageNumber});
     });
   }

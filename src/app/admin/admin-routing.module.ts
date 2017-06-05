@@ -7,6 +7,8 @@ import {AdminComponent} from './admin.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {UsersComponent} from './pages/users/users.component';
 import {UserFormComponent} from './pages/users/user-form/user-form.component';
+import {CategoriesComponent} from './pages/categories/categories.component';
+import {CategoryFormComponent} from './pages/categories/category-form/category-form.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +29,19 @@ export const routes: Routes = [
       {
         component: UserFormComponent,
         path: 'users/:id'
+      },
+      {
+        component: CategoriesComponent,
+        path: 'categories',
+        pathMatch: 'full'
+      },
+      {
+        component: CategoryFormComponent,
+        path: 'categories/new',
+      },
+      {
+        component: CategoryFormComponent,
+        path: 'categories/:id'
       },
       {
         path: '',

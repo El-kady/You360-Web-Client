@@ -9,10 +9,12 @@ import {AdminRoutingModule} from './admin-routing.module';
 
 import {CanActivateGuard} from '../services/guard.service';
 import {UsersService} from '../services/users.service';
+import {CategoriesService} from '../services/categories.service';
 
 const services = [
   CanActivateGuard,
-  UsersService
+  UsersService,
+  CategoriesService,
 ];
 
 // Admin Wrapper
@@ -25,11 +27,18 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {UsersComponent} from './pages/users/users.component';
 import {UserFormComponent} from './pages/users/user-form/user-form.component';
 
+// Categories CRUD
+import {CategoriesComponent} from './pages/categories/categories.component';
+import {CategoryFormComponent} from './pages/categories/category-form/category-form.component';
+
 const pages = [
   DashboardComponent,
 
   UsersComponent,
-  UserFormComponent
+  UserFormComponent,
+
+  CategoriesComponent,
+  CategoryFormComponent
 ];
 
 @NgModule({
