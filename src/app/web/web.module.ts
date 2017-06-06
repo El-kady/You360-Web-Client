@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {Ng2BootstrapModule} from 'ngx-bootstrap';
 
-import { Ng2UploaderModule } from 'ng2-uploader';
-import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 
+import {FileUploadModule} from 'ng2-file-upload';
 
 import {SharedModule} from '../shared.module';
 import {WebRoutingModule} from './web-routing.module';
@@ -35,15 +35,14 @@ let pages = [
     SharedModule,
     CommonModule,
     FormsModule,
+    FileUploadModule,
     HttpModule,
     WebRoutingModule,
-    Ng2UploaderModule
+    Ng2BootstrapModule.forRoot()
   ],
   declarations: [
     WebComponent,
     ...pages,
-    //UPLOAD_DIRECTIVES
-
   ],
   providers: [
     ...services

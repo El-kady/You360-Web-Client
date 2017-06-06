@@ -5,11 +5,11 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {FormsModule} from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({noTokenScheme : true}), http, options);
+  return new AuthHttp(new AuthConfig({noTokenScheme: true}), http, options);
 }
 
 import {AuthService} from './services/auth.service';

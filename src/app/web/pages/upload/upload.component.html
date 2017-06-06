@@ -1,31 +1,64 @@
-<div class="text-center tr-section tr-section-padding">
-  <div class="section-title">
-    <h1>Select files to upload</h1>
+
+<div class="tr-section tr-section-padding">
+
+  <div *ngIf="!uploading" class="text-center">
+    <div class="section-title">
+      <h1>Upload Video</h1>
+    </div>
+
+    <div ng2FileDrop
+         [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+         (fileOver)="fileOverBase($event)"
+         [uploader]="uploader"
+         class="well my-drop-zone">
+      <p>
+        Drop Videos Here
+      </p>
+      <input type="file" ng2FileSelect [uploader]="uploader"/>
+    </div>
+
+
   </div>
-   <p>Or drag and drop video files</p>
+
+  <form *ngIf="uploading" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+    <tabset>
+      <tab heading="Basic info">
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+          <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="model.name"
+                 #name="ngModel" required/>
+          <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+          <input type="text" class="form-control" name="description" placeholder="Description" [(ngModel)]="model.description"
+                 #description="ngModel" required/>
+          <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
+        </div>
+
+      </tab>
+    </tabset>
+
+    <div class="row">
+      <div class="col-md-10">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+            <span style="color:white;">{{uploader.progress}} %</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button [disabled]="loading || uploader.isUploading" class="btn btn-primary btn-block">
+          <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i> Publish
+        </button>
+      </div>
+    </div>
 
 
-</div>
+  </form>
 
 
-<input type="file"
-       ngFileSelect
-       [options]="options"
-       (onUpload)="handleUpload($event)"
-       (beforeUpload)="beforeUpload($event)">
 
-<!-- drag & drop file example-->
-<style>
-  .file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
-</style>
-<div ngFileDrop
-     [options]="options"
-     (onUpload)="handleUpload($event)"
-     [ngClass]="{'file-over': hasBaseDropZoneOver}"
-     (onFileOver)="fileOverBase($event)"
-     (beforeUpload)="beforeUpload($event)">
-</div>
 
-<div>
-  Response: {{ uploadFile | json }}
 </div>

@@ -1,0 +1,25 @@
+.tr-section-padding {
+  padding:25px;
+}
+
+.my-drop-zone {
+  border: dotted 3px lightgray;
+  padding: 40px;
+}
+
+input[type="file"]{
+  display: inline-block;
+}
+
+.progress {
+  margin: 10px 0 0 0;
+  height: 36px;
+}
+
+.progress-bar {
+  line-height: 36px;
+}
+
+.tab-pane {
+  padding: 10px 0;
+}
