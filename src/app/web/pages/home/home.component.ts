@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import {Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,17 +7,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-
-  constructor(
-  ) {
-    // TODO
+  public video = 'http://localhost:3000/api/videos/stream';
+  constructor() {
   }
 
-  public ngOnInit() {
+  ngOnInit() {
 
   }
 
-  public ngOnDestroy() {
+  ngOnDestroy() {
 
   }
 
