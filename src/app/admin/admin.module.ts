@@ -29,6 +29,10 @@ import {UserFormComponent} from './pages/users/user-form/user-form.component';
 import {CategoriesComponent} from './pages/categories/categories.component';
 import {CategoryFormComponent} from './pages/categories/category-form/category-form.component';
 
+// Videos CRUD
+import {VideosComponent} from './pages/videos/videos.component';
+import {VideoFormComponent} from './pages/videos/video-form/video-form.component';
+
 const pages = [
   DashboardComponent,
 
@@ -36,7 +40,10 @@ const pages = [
   UserFormComponent,
 
   CategoriesComponent,
-  CategoryFormComponent
+  CategoryFormComponent,
+
+  VideosComponent,
+  VideoFormComponent
 ];
 
 @NgModule({

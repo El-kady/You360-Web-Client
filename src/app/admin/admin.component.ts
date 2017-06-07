@@ -24,6 +24,11 @@ export class AdminComponent {
       route: '/admin/categories'
     },
     {
+      title: 'Videos',
+      icon: 'fa-video-camera',
+      route: '/admin/videos'
+    },
+    {
       title: 'Users',
       icon: 'fa-users',
       route: '/admin/users'

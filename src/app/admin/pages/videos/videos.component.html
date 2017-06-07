@@ -1,0 +1,42 @@
+<div class="tr-section">
+  <div class="section-title">
+    <h1>
+      <i class="fa fa-users"></i> Videos
+    </h1>
+  </div>
+
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="[]"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [externalPaging]="true"
+    [count]="page.totalElements"
+    [offset]="page.pageNumber"
+    [limit]="page.size"
+    (page)='setPage($event)'>
+
+    <ngx-datatable-column name="Name" prop="name">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Actions" sortable="false" prop="_id">
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        {{column.name}}
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button md-icon-button [routerLink]="[value]">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button md-icon-button (click)="remove(value)">
+          <i class="fa fa-remove"></i>
+        </button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+
+</div>
