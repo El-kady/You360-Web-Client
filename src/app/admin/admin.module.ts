@@ -9,12 +9,10 @@ import {AdminRoutingModule} from './admin-routing.module';
 
 import {CanActivateGuard} from '../services/guard.service';
 import {UsersService} from '../services/users.service';
-import {CategoriesService} from '../services/categories.service';
 
 const services = [
   CanActivateGuard,
-  UsersService,
-  CategoriesService,
+  UsersService
 ];
 
 // Admin Wrapper

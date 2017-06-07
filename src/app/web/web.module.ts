@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ngx-bootstrap';
+import {SelectModule} from 'ng2-select';
 
 
 import {FileUploadModule} from 'ng2-file-upload';
@@ -38,7 +39,8 @@ let pages = [
     FileUploadModule,
     HttpModule,
     WebRoutingModule,
-    Ng2BootstrapModule.forRoot()
+    Ng2BootstrapModule.forRoot(),
+    SelectModule
   ],
   declarations: [
     WebComponent,
