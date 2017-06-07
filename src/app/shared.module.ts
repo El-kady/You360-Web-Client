@@ -14,10 +14,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 import {AuthService} from './services/auth.service';
 import {AlertService} from './services/alert.service';
+import {CategoriesService} from './services/categories.service';
+import {VideosService} from './services/videos.service';
 
 const services = [
   AuthService,
-  AlertService
+  AlertService,
+  CategoriesService,
+  VideosService
 ];
 
 // Helpers

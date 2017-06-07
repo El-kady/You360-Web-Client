@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ngx-bootstrap';
+import {SelectModule} from 'ng2-select';
 
 import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
@@ -45,6 +46,7 @@ let pages = [
     HttpModule,
     WebRoutingModule,
     Ng2BootstrapModule.forRoot(),
+    SelectModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,

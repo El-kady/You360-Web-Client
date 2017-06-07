@@ -9,4 +9,8 @@ export class Category {
         this.description = data.description || '';
     }
 
+    public toSelectItem(){
+      return {id : this._id, text : this.name};
+    }
+
 }
