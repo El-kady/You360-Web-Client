@@ -66,6 +66,10 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  public setImage(image) {
+    this.user.image = image;
+  }
+
   public save() {
     this.loading = true;
     let result;

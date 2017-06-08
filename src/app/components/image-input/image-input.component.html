@@ -1,0 +1,11 @@
+﻿<div class="image-input">
+  <img [src]="file_src" class="img-thumbnail">
+  <div class="btn btn-default">
+    <span class="fa fa-folder-open"></span>
+    <span class="image-input-title">Browse</span>
+    <input required (change)="fileChange(input)" #input type="file" accept="image/png, image/jpeg, image/gif" name="input-preview">
+  </div>
+</div>
+
+
+

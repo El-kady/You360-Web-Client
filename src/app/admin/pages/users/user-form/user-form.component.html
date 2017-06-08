@@ -29,6 +29,11 @@
       <div *ngIf="form.controls['password'].touched && !form.controls['password'].valid" class="help-block">Password is required and needs to contain at least 8 chars</div>
     </div>
 
+    <div class="form-group">
+      <label>Profile Photo</label>
+      <app-image-input (srcChanged)="setImage($event)"></app-image-input>
+    </div>
+
     <button [disabled]="loading || !form.valid" type="submit" class="btn btn-default">
       <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
       Submit

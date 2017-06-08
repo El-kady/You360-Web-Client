@@ -29,10 +29,12 @@ import {AlertComponent} from './components/alert/alert.component';
 
 // Shared Components
 import {UserMenuComponent} from './components/user-menu/user-menu.component';
+import {ImageInputComponent} from './components/image-input/image-input.component';
 
 const components = [
   AlertComponent,
-  UserMenuComponent
+  UserMenuComponent,
+  ImageInputComponent
 ];
 
 @NgModule({
