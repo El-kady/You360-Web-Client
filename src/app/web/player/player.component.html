@@ -1,6 +1,7 @@
  <video #player class="video-js vjs-default-skin vjs-big-play-centered"
          crossorigin=''
          preload="metadata"
-         controls [width]="width" [height]="height">
+         controls
+        [poster]="poster">
     <source [src]="src" type='video/mp4'>
   </video>

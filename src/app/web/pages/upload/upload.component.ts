@@ -53,6 +53,9 @@ export class UploadComponent implements OnInit, OnDestroy {
       this.uploader.uploadAll();
       this.uploading = true;
     };
+    this.uploader.onBeforeUploadItem = (item) => {
+      item.withCredentials = false;
+    };
     this.uploader.onProgressAll = (progress: any) => this.detector.detectChanges();
 
     this.uploader.onCompleteItem = (item, json, status) => {

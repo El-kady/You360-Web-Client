@@ -9,8 +9,7 @@ declare var videojs: any;
 })
 export class PlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('src') src: any;
-  @Input('width') width: any;
-  @Input('height') height: any;
+  @Input('poster') poster: any;
   @ViewChild('player') _player: ElementRef;
   private videoJSplayer: any;
 
