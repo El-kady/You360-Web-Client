@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit {
   title: string;
   loading = false;
   user: User = new User();
+  imagePreview = '';
   rules = {
     firstName: ['', [
       Validators.required,
@@ -55,7 +56,8 @@ export class UserFormComponent implements OnInit {
         this._users.getUser(id)
           .subscribe(
             user => {
-              this.user = user;
+              this.user = new User(user);
+              this.imagePreview = this.user.getImage();
               this.create = false;
             },
             response => {

@@ -11,16 +11,16 @@ export class ImageInputComponent implements OnInit {
   @Output() srcChanged = new EventEmitter();
   @Input() srcStr;
 
-  public file_src = 'assets/images/default_image.png';
   public debug_size_before: string[] = [];
   public debug_size_after: string[] = [];
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef
-  ) {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
+    if (this.srcStr === '') {
+      this.srcStr = 'assets/images/default_image.png';
+    }
   }
 
   fileChange(input) {
@@ -38,12 +38,12 @@ export class ImageInputComponent implements OnInit {
     const reader = new FileReader();
     if (index in files) {
       this.readFile(files[index], reader, (result) => {
-        let img = document.createElement("img");
+        let img = document.createElement('img');
         img.src = result;
         this.resize(img, 250, 250, (resized_jpeg, before, after) => {
           this.debug_size_before.push(before);
           this.debug_size_after.push(after);
-          this.file_src = resized_jpeg;
+          this.srcStr = resized_jpeg;
           this.srcChanged.emit(resized_jpeg);
           this.readFiles(files, index + 1);
         });
