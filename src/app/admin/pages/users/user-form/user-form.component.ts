@@ -36,7 +36,7 @@ export class UserFormComponent implements OnInit {
     password: ['', [
       Validators.required,
       Validators.minLength(8)
-    ]]
+    ]],
   };
 
   constructor(formBuilder: FormBuilder,
@@ -76,9 +76,9 @@ export class UserFormComponent implements OnInit {
     const userValue = this.form.value;
 
     if (this.create) {
-      result = this._users.addUser(userValue);
+      result = this._users.addUser(this.user);
     } else {
-      result = this._users.updateUser(this.user._id, userValue);
+      result = this._users.updateUser(this.user._id, this.user);
     }
 
     result.subscribe(

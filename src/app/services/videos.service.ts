@@ -10,17 +10,18 @@ import {PagedData} from '../helpers/paged-data';
 
 @Injectable()
 export class VideosService {
+  headers = {headers: new Headers({'Content-Type': 'application/json'})};
 
   constructor(public authHttp: AuthHttp,
               private router: Router) {
   }
 
   public add(data) {
-    return this.authHttp.post(Config.API_ENDPOINT + '/api/videos', JSON.stringify(data), {headers: new Headers({'Content-Type': 'application/json'})}).map(res => res.json());
+    return this.authHttp.post(Config.API_ENDPOINT + '/api/videos', JSON.stringify(data), this.headers).map(res => res.json());
   }
 
   public update(id, data) {
-    return this.authHttp.put(Config.API_ENDPOINT + '/api/videos/' + id, JSON.stringify(data)).map(res => res.json());
+    return this.authHttp.put(Config.API_ENDPOINT + '/api/videos/' + id, JSON.stringify(data), this.headers).map(res => res.json());
   }
 
   public get(id) {

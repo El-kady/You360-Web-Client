@@ -10,18 +10,18 @@ import {PagedData} from '../helpers/paged-data';
 
 @Injectable()
 export class UsersService {
-
+  headers = {headers: new Headers({'Content-Type': 'application/json'})};
   constructor(public http: Http,
               public authHttp: AuthHttp,
               private router: Router) {
   }
 
   public addUser(user) {
-    return this.authHttp.post(Config.API_ENDPOINT + '/api/users', JSON.stringify(user), {headers: new Headers({'Content-Type': 'application/json'})}).map(res => res.json());
+    return this.authHttp.post(Config.API_ENDPOINT + '/api/users', JSON.stringify(user), this.headers).map(res => res.json());
   }
 
   public updateUser(id, user) {
-    return this.authHttp.put(Config.API_ENDPOINT + '/api/users/' + id, JSON.stringify(user)).map(res => res.json());
+    return this.authHttp.put(Config.API_ENDPOINT + '/api/users/' + id, JSON.stringify(user), this.headers).map(res => res.json());
   }
 
   public getUser(id) {
