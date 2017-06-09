@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit {
   title: string;
   loading = false;
   user: User = new User();
+  imagePreview = '';
   rules = {
     firstName: ['', [
       Validators.required,
@@ -36,7 +37,7 @@ export class UserFormComponent implements OnInit {
     password: ['', [
       Validators.required,
       Validators.minLength(8)
-    ]]
+    ]],
   };
 
   constructor(formBuilder: FormBuilder,
@@ -55,7 +56,8 @@ export class UserFormComponent implements OnInit {
         this._users.getUser(id)
           .subscribe(
             user => {
-              this.user = user;
+              this.user = new User(user);
+              this.imagePreview = this.user.getImage();
               this.create = false;
             },
             response => {
@@ -76,9 +78,9 @@ export class UserFormComponent implements OnInit {
     const userValue = this.form.value;
 
     if (this.create) {
-      result = this._users.addUser(userValue);
+      result = this._users.addUser(this.user);
     } else {
-      result = this._users.updateUser(this.user._id, userValue);
+      result = this._users.updateUser(this.user._id, this.user);
     }
 
     result.subscribe(

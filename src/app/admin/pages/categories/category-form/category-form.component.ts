@@ -22,7 +22,7 @@ export class CategoryFormComponent implements OnInit {
   rules = {
     name: ['', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(2)
     ]],
     description: ['', [
       Validators.maxLength(255)
