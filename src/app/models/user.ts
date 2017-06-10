@@ -19,6 +19,10 @@ export class User {
     this.logged = data.logged || false;
   }
 
+  public getID(){
+    return this._id;
+  }
+
   public getName() {
     return this.firstName + ' ' + this.lastName;
   }

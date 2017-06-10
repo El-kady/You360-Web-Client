@@ -1,11 +1,12 @@
 ﻿<div *ngIf="user.logged" class="user">
   <div class="user-image">
-    <img class="img-responsive img-circle" src="/assets/images/others/user.png" alt="Image">
+    <img class="img-responsive img-circle" [src]="user.getImage()">
   </div>
   <div class="dropdown user-dropdown">
     <a href="#" aria-expanded="true">{{user.getName()}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
     <ul class="sub-menu text-left">
       <li><a [routerLink]="['/admin']">Admin Panel</a></li>
+      <li><a [routerLink]="['/account']">Account settings</a></li>
       <li><a (click)="logout()">Log Out</a></li>
     </ul>
   </div>

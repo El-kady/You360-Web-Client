@@ -1,0 +1,40 @@
+<div class="tr-section ">
+
+    <div class="section-title">
+      <h1>general</h1>
+    </div>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="form-group" [ngClass]="{ 'has-error': form.controls['firstName'].touched && !form.controls['firstName'].valid }">
+      <label>First Name</label>
+      <input [(ngModel)]="user.firstName" formControlName="firstName" type="text" class="form-control">
+      <div *ngIf="form.controls['firstName'].touched && !form.controls['firstName'].valid" class="help-block">First Name is required and needs to contain at least 3 chars</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': form.controls['lastName'].touched && !form.controls['lastName'].valid }">
+      <label>Last Name</label>
+      <input [(ngModel)]="user.lastName" formControlName="lastName" type="text" class="form-control">
+      <div *ngIf="form.controls['lastName'].touched && !form.controls['lastName'].valid" class="help-block">Last Name is required and needs to contain at least 3 chars</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': form.controls['email'].touched && !form.controls['email'].valid }">
+      <label>Email address</label>
+      <input [(ngModel)]="user.email" formControlName="email" type="email" class="form-control">
+      <div *ngIf="form.controls['email'].touched && !form.controls['email'].valid" class="help-block">Invalid Email</div>
+    </div>
+
+    <div class="form-group">
+      <label>Profile Photo</label>
+      <app-image-input [srcStr]="imagePreview" (srcChanged)="setImage($event)"></app-image-input>
+    </div>
+
+    <button [disabled]="loading || !form.valid" type="submit" class="btn btn-default">
+      <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+      Submit
+    </button>
+  </form>
+
+
+
+</div>

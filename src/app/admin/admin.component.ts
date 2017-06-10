@@ -12,6 +12,7 @@ import {AuthService} from '../services/auth.service';
 
 export class AdminComponent {
   private currentUser: User = new User();
+  public isCollapsed:boolean = false;
   private sideBarItems = [
     {
       title: 'Dashboard',

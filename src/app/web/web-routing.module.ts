@@ -22,6 +22,11 @@ export const routes: Routes = [
         path: 'upload',
       },
       {
+        canActivate: [CanActivateGuard],
+        loadChildren: './account/account.module#AccountModule',
+        path: 'account',
+      },
+      {
         component: RegisterComponent,
         path: 'register'
       },
