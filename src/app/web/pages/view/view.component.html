@@ -78,17 +78,20 @@
         <div class="section-title">
           <h1><span>Leave a Comments</span></h1>
         </div>
-        <form class="contact-form" name="contact-form" method="post" action="#">
+        <form (ngSubmit)="f.form.valid && addComment()" #f="ngForm" novalidate method="post">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group">
-                <label for="four">Your Text</label>
-                <textarea name="message" required="required" class="form-control" rows="7" id="four"></textarea>
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !comment.valid }">
+                <label>Your Text</label>
+                <textarea [(ngModel)]="commentModel.comment" #comment="ngModel" name="comment" required class="form-control" rows="3"></textarea>
+                <div *ngIf="f.submitted && !comment.valid" class="help-block">Message is required</div>
               </div>
             </div>
           </div>
           <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary pull-right">Submit Your Text</button>
+            <button [disabled]="commentLoading" type="submit" class="btn btn-primary pull-right">
+              <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i> Submit Your Text
+            </button>
           </div>
         </form>
       </div>

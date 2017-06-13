@@ -59,7 +59,7 @@ export class VideosService {
         page.totalPages = data.pages;
 
         pagedData.page = page;
-console.log(data.docs)
+
         let docs = [];
         for (let i in data.docs) {
           docs[i] = new Video(data.docs[i]);
@@ -70,5 +70,9 @@ console.log(data.docs)
         return pagedData;
       }
     );
+  }
+
+  public addComment(id, data) {
+    return this.authHttp.post(Config.API_ENDPOINT + '/api/videos/' + id + '/comments', JSON.stringify(data), this.headers).map(res => res.json());
   }
 }

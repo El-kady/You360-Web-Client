@@ -14,6 +14,8 @@ import {AuthService} from '../../../services/auth.service';
 export class ViewComponent implements OnInit, OnDestroy {
   // public video = 'http://localhost:3000/api/videos/stream';
   public video: Video = new Video();
+  public commentModel: any = {};
+  public commentLoading = false;
 
   constructor(private _videos: VideosService,
               private router: Router,
@@ -25,9 +27,17 @@ export class ViewComponent implements OnInit, OnDestroy {
       const id = params['id'];
       this._videos.get(id).subscribe(videoData => {
         this.video = new Video(videoData);
-        console.log(this.video);
+        console.log(videoData);
       });
     });
+  }
+
+  public addComment() {
+    this._videos.addComment(this.video.getID(), this.commentModel).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
   ngOnDestroy() {
