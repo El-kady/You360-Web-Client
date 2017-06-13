@@ -33,46 +33,30 @@
 
         <div class="tr-details">
 
-        </div><!-- /.tr-details -->
-      </div><!-- /.tr-section -->
+        </div>
+      </div>
 
       <div class="tr-comment">
         <div class="section-title">
           <h1><span>Comments</span></h1>
         </div>
-        <ul class="post-comment">
-          <li>
+        <p *ngIf="video.comments.length == 0">
+          <strong>No Comments right now</strong>
+        </p>
+        <ul *ngIf="video.comments" class="post-comment">
+          <li *ngFor="let comment of video.comments">
             <div class="commenter-avatar">
-              <a href="#"><img class="img-responsive img-circle" src="images/others/author1.png" alt="Image"></a>
+              <a [routerLink]="['/channel',comment.owner.getID()]">
+                <img class="img-responsive img-circle" [src]="comment.owner.getImage()">
+              </a>
             </div>
             <div class="media-body">
-              <h2>Axel Bouaziz <span>2 Jan 2017</span></h2>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              <a href="#" class="reply">Reply</a>
-            </div>
-          </li>
-          <li>
-            <div class="commenter-avatar">
-              <a href="#"><img class="img-responsive img-circle" src="images/others/author3.png" alt="Image"></a>
-            </div>
-            <div class="media-body">
-              <h2>Adam Hianks<span>7 Jan 2017</span></h2>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              <a href="#" class="reply">Reply</a>
-            </div>
-          </li>
-          <li>
-            <div class="commenter-avatar">
-              <a href="#"><img class="img-responsive img-circle" src="images/others/author2.png" alt="Image"></a>
-            </div>
-            <div class="media-body">
-              <h2>Matt Cloey <span>12 Jan 2017</span></h2>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              <a href="#" class="reply">Reply</a>
+              <h2>{{comment.owner.getName()}}</h2>
+              <p>{{comment.comment}}</p>
             </div>
           </li>
         </ul>
-      </div><!-- /.comment-section -->
+      </div>
 
       <div class="tr-comment-box">
         <div class="section-title">

@@ -2,6 +2,7 @@ import {Config} from '../app.constants';
 
 import {User} from './user';
 import {Category} from './category';
+import {Comment} from './comment';
 
 export class Video {
   public _id: string;
@@ -9,9 +10,13 @@ export class Video {
   public description: string;
   public thumb: string;
   public views: number;
+
   public owner: User;
   public category: Category;
+  public comments: Array<Comment> = [];
+
   public createdAt: string;
+
 
   public constructor(data: any = {}) {
     this._id = data._id || '';
@@ -21,6 +26,12 @@ export class Video {
     this.views = data.views || '';
     this.owner = new User(data.owner);
     this.category = new Category(data.category);
+
+    const comments = data.comments || [];
+    for (let i in comments) {
+      this.comments[i] = new Comment(data.comments[i]);
+    }
+
     this.createdAt = data.createdAt || '';
   }
 

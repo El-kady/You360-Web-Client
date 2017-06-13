@@ -29,6 +29,7 @@ export const routes: Routes = [
         path: 'channel/:id',
       },
       {
+        canActivate: [CanActivateGuard],
         component: ViewComponent,
         path: 'video/:id',
       },
