@@ -8,6 +8,8 @@ import {HomeComponent} from './pages/home/home.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {LoginComponent} from './pages/login/login.component';
 import {UploadComponent} from './pages/upload/upload.component';
+import {ChannelComponent} from './pages/channel/channel.component';
+import {ViewComponent} from './pages/view/view.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +22,15 @@ export const routes: Routes = [
         canActivate: [CanActivateGuard],
         component: UploadComponent,
         path: 'upload',
+      },
+      {
+        canActivate: [CanActivateGuard],
+        component: ChannelComponent,
+        path: 'channel/:id',
+      },
+      {
+        component: ViewComponent,
+        path: 'video/:id',
       },
       {
         canActivate: [CanActivateGuard],

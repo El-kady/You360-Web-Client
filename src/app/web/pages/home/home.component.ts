@@ -7,7 +7,6 @@ import {Component, OnInit, OnDestroy } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-  public video = 'http://localhost:3000/api/videos/stream';
   constructor() {
   }
 

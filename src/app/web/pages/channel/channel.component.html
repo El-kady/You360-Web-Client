@@ -1,0 +1,15 @@
+<div class="tr-section">
+  <div class="section-title title-before">
+    <h1>
+      {{user.getName()}}
+    </h1>
+  </div>
+
+  <div class="medium-post-content row">
+
+    <div *ngFor="let row of rows" class="col-md-3 left-post">
+      <app-video-item [video]="row"></app-video-item>
+    </div>
+
+  </div>
+</div>

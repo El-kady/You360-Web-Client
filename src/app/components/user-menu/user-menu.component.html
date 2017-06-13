@@ -5,8 +5,9 @@
   <div class="dropdown user-dropdown">
     <a href="#" aria-expanded="true">{{user.getName()}}<i class="fa fa-caret-down" aria-hidden="true"></i></a>
     <ul class="sub-menu text-left">
-      <li><a [routerLink]="['/admin']">Admin Panel</a></li>
+      <li><a [routerLink]="['/admin']">Admin panel</a></li>
       <li><a [routerLink]="['/account']">Account settings</a></li>
+      <li><a [routerLink]="['/channel',user.getID()]">My channel</a></li>
       <li><a (click)="logout()">Log Out</a></li>
     </ul>
   </div>

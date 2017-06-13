@@ -25,20 +25,30 @@
     <tabset>
       <tab heading="Basic info">
 
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
-          <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="model.name"
-                 #name="ngModel" required/>
-          <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
-        </div>
 
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !model.category }">
-          <ng-select *ngIf="categoriesList.length > 0" [allowClear]="false"
-                     [items]="categoriesList"
-                     (selected)="selected($event)"
-                     (typed)="typed($event)"
-                     placeholder="Select Category">
-          </ng-select>
-          <div *ngIf="f.submitted && !model.category" class="help-block">Category is required</div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+              <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="model.name"
+                     #name="ngModel" required/>
+              <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !model.category }">
+              <ng-select *ngIf="categoriesList.length > 0" [allowClear]="false"
+                         [items]="categoriesList"
+                         (selected)="selected($event)"
+                         (typed)="typed($event)"
+                         placeholder="Select Category">
+              </ng-select>
+              <div *ngIf="f.submitted && !model.category" class="help-block">Category is required</div>
+            </div>
+          </div>
+          <div class="col md-3">
+            <div class="form-group">
+              <app-image-input [srcStr]="imagePreview" (srcChanged)="setImage($event)"></app-image-input>
+            </div>
+          </div>
         </div>
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">

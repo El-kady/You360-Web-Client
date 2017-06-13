@@ -22,13 +22,17 @@ import {HomeComponent} from './pages/home/home.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {UploadComponent} from './pages/upload/upload.component';
-import {PlayerComponent} from './player/player.component';
+import {ChannelComponent} from './pages/channel/channel.component';
+import {ViewComponent} from './pages/view/view.component';
+import {PlayerComponent} from '../components/player/player.component';
 
 const pages = [
   HomeComponent,
   LoginComponent,
   RegisterComponent,
-  UploadComponent
+  UploadComponent,
+  ViewComponent,
+  ChannelComponent
 ];
 
 @NgModule({

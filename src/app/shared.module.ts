@@ -13,12 +13,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 
 import {AuthService} from './services/auth.service';
+import {UsersService} from './services/users.service';
 import {AlertService} from './services/alert.service';
 import {CategoriesService} from './services/categories.service';
 import {VideosService} from './services/videos.service';
 
 const services = [
   AuthService,
+  UsersService,
   AlertService,
   CategoriesService,
   VideosService
@@ -30,11 +32,13 @@ import {AlertComponent} from './components/alert/alert.component';
 // Shared Components
 import {UserMenuComponent} from './components/user-menu/user-menu.component';
 import {ImageInputComponent} from './components/image-input/image-input.component';
+import {VideoItemComponent} from './components/video-item/video-item.component';
 
 const components = [
   AlertComponent,
   UserMenuComponent,
-  ImageInputComponent
+  ImageInputComponent,
+  VideoItemComponent,
 ];
 
 @NgModule({

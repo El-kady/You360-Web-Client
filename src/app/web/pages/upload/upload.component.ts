@@ -25,6 +25,7 @@ const AUTHTOKEN = localStorage.getItem('token');
 export class UploadComponent implements OnInit, OnDestroy {
   model: any = {};
   loading = false;
+  imagePreview = '';
 
   public uploader: FileUploader = new FileUploader(
     {
@@ -70,6 +71,10 @@ export class UploadComponent implements OnInit, OnDestroy {
 
   public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
+  }
+
+  public setImage(image) {
+    this.model.thumb = image;
   }
 
   public ngOnInit() {

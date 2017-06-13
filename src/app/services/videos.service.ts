@@ -48,4 +48,27 @@ export class VideosService {
       }
     );
   }
+
+  public userList(id, page: Page) {
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/videos/user/' + id + '/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
+      res => {
+        const data = res.json();
+        let pagedData = new PagedData<Video>();
+
+        page.totalElements = data.total;
+        page.totalPages = data.pages;
+
+        pagedData.page = page;
+console.log(data.docs)
+        let docs = [];
+        for (let i in data.docs) {
+          docs[i] = new Video(data.docs[i]);
+        }
+
+        pagedData.data = docs;
+
+        return pagedData;
+      }
+    );
+  }
 }

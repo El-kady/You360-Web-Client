@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-sm-9 tr-sticky">
+    <div class="tr-content theiaStickySidebar">
+      <div class="tr-section">
+        <div class="tr-post">
+          <div class="entry-header">
+            <div style="width:100%;height: 500px">
+              <!--<app-player [src]="video" >-->
+              <!--</app-player>-->
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="entry-meta">
+              <ul>
+                <li>By <a [routerLink]="['/channel',video.owner.getID()]">{{video.owner.getName()}}</a></li>
+                <li>{{video.createdAt}}</li>
+                <li>
+                  <ul>
+                    <li>Share</li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.entry-meta -->
+            <h2 class="entry-title">
+              {{video.name}}
+            </h2>
+          </div><!-- /.post-content -->
+        </div><!-- /.tr-post -->
+
+        <div class="tr-details">
+
+        </div><!-- /.tr-details -->
+      </div><!-- /.tr-section -->
+
+      <div class="tr-comment">
+        <div class="section-title">
+          <h1><span>Comments</span></h1>
+        </div>
+        <ul class="post-comment">
+          <li>
+            <div class="commenter-avatar">
+              <a href="#"><img class="img-responsive img-circle" src="images/others/author1.png" alt="Image"></a>
+            </div>
+            <div class="media-body">
+              <h2>Axel Bouaziz <span>2 Jan 2017</span></h2>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <a href="#" class="reply">Reply</a>
+            </div>
+          </li>
+          <li>
+            <div class="commenter-avatar">
+              <a href="#"><img class="img-responsive img-circle" src="images/others/author3.png" alt="Image"></a>
+            </div>
+            <div class="media-body">
+              <h2>Adam Hianks<span>7 Jan 2017</span></h2>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <a href="#" class="reply">Reply</a>
+            </div>
+          </li>
+          <li>
+            <div class="commenter-avatar">
+              <a href="#"><img class="img-responsive img-circle" src="images/others/author2.png" alt="Image"></a>
+            </div>
+            <div class="media-body">
+              <h2>Matt Cloey <span>12 Jan 2017</span></h2>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <a href="#" class="reply">Reply</a>
+            </div>
+          </li>
+        </ul>
+      </div><!-- /.comment-section -->
+
+      <div class="tr-comment-box">
+        <div class="section-title">
+          <h1><span>Leave a Comments</span></h1>
+        </div>
+        <form class="contact-form" name="contact-form" method="post" action="#">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="four">Your Text</label>
+                <textarea name="message" required="required" class="form-control" rows="7" id="four"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary pull-right">Submit Your Text</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 tr-sidebar tr-sticky">
+    <div class="theiaStickySidebar">
+
+      <div class="tr-section tr-widget tr-ad ad-before">
+        ADS
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
