@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ff5e0449-686d-44b1-abcf-73966769595c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/pages/videos/video-form/video-form.component.html" afterPath="$PROJECT_DIR$/src/app/admin/pages/videos/video-form/video-form.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/pages/videos/video-form/video-form.component.ts" afterPath="$PROJECT_DIR$/src/app/admin/pages/videos/video-form/video-form.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.constants.ts" afterPath="$PROJECT_DIR$/src/app/app.constants.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/models/video.ts" afterPath="$PROJECT_DIR$/src/app/models/video.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/videos.service.ts" afterPath="$PROJECT_DIR$/src/app/services/videos.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/web/pages/view/view.component.html" afterPath="$PROJECT_DIR$/src/app/web/pages/view/view.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/web/pages/view/view.component.ts" afterPath="$PROJECT_DIR$/src/app/web/pages/view/view.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -25,46 +20,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="view.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.ts">
+      <file leaf-file-name="users.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-140">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="220">
+              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="view.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="160">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="player.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/player/player.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="35" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="player.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/player/player.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/web/player/player.component.css" />
         <option value="$PROJECT_DIR$/src/app/web/player/player.component.ts" />
         <option value="$PROJECT_DIR$/src/app/web/player/player.component.html" />
         <option value="$PROJECT_DIR$/src/app/web/pages/account/account.component.ts" />
@@ -139,6 +111,7 @@
         <option value="$PROJECT_DIR$/src/app/components/player/player.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/player/player.component.ts" />
         <option value="$PROJECT_DIR$/src/app/web/pages/view/view.component.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/app/web/pages/view/view.component.html" />
       </list>
     </option>
@@ -621,12 +594,12 @@
       <workItem from="1496974124850" duration="881000" />
       <workItem from="1497262022875" duration="4052000" />
       <workItem from="1497337330376" duration="19604000" />
-      <workItem from="1497425253703" duration="7446000" />
+      <workItem from="1497425253703" duration="8827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58741000" />
+    <option name="totallyTimeSpent" value="60122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1311" height="772" extended-state="6" />
@@ -712,13 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -846,14 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1000,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/videos.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="52" column="80" lean-forward="false" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/image-input/image-input.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-668">
@@ -1064,22 +1014,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="38">
+          <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/services/videos.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/web/pages/view/view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
-            <element signature="e#0#59#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
