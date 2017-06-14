@@ -10,6 +10,7 @@ export class Video {
   public description: string;
   public thumb: string;
   public views: number;
+  public stream: string;
 
   public owner: User;
   public category: Category;
@@ -24,6 +25,7 @@ export class Video {
     this.description = data.description || '';
     this.thumb = data.thumb || '';
     this.views = data.views || '';
+    this.stream = data.stream || '';
     this.owner = new User(data.owner);
     this.category = new Category(data.category);
 
@@ -40,6 +42,7 @@ export class Video {
   }
 
   public getThumb() {
-    return (this.thumb !== '') ? Config.API_UPLOADS_ENDPOINT + '/uploads/' + this.thumb : '';
+    // return (this.thumb !== '') ? Config.API_UPLOADS_ENDPOINT + '/uploads/' + this.thumb : '';
+    return (this.thumb !== '') ? this.thumb : '';
   }
 }

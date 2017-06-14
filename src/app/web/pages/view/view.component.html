@@ -5,8 +5,8 @@
         <div class="tr-post">
           <div class="entry-header">
             <div style="width:100%;height: 500px">
-              <!--<app-player [src]="video" >-->
-              <!--</app-player>-->
+              <app-player *ngIf="video.stream" [src]="video.stream" [poster]="video.thumb">
+              </app-player>
             </div>
           </div>
           <div class="post-content">

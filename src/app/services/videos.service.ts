@@ -50,7 +50,7 @@ export class VideosService {
   }
 
   public userList(id, page: Page) {
-    return this.authHttp.get(Config.API_ENDPOINT + '/api/videos/user/' + id + '/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/users/' + id + '/videos/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
       res => {
         const data = res.json();
         let pagedData = new PagedData<Video>();

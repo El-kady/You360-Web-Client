@@ -15,7 +15,6 @@ import {AlertService} from '../../../services/alert.service';
 })
 
 export class ViewComponent implements OnInit, OnDestroy {
-  // public video = 'http://localhost:3000/api/videos/stream';
   private currentUser: User = new User();
   public video: Video = new Video();
   public commentModel: any = {};

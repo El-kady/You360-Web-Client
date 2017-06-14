@@ -40,12 +40,12 @@ export class VideoFormComponent implements OnInit {
   public ngOnInit() {
     this.route.params.subscribe(params => {
       const id = params['id'];
-      this.title = id ? 'Edit Category' : 'New Category';
+      this.title = id ? 'Edit Video' : 'New Video';
       if (id) {
         this._videos.get(id)
           .subscribe(
-            category => {
-              this._videos = category;
+            video => {
+              this.video = video;
               this.create = false;
             },
             response => {
