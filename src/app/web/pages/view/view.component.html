@@ -12,6 +12,7 @@
               <ul>
                 <li>By <a [routerLink]="['/channel',video.owner.getID()]">{{video.owner.getName()}}</a></li>
                 <li>{{video.createdAt}}</li>
+                <li><i class="fa fa-eye"></i> {{video.views}}</li>
                 <li>
                   <ul>
                     <li>Share</li>
@@ -22,12 +23,17 @@
                   </ul>
                 </li>
               </ul>
-            </div><!-- /.entry-meta -->
+            </div>
             <h2 class="entry-title">
               {{video.name}}
             </h2>
-          </div><!-- /.post-content -->
-        </div><!-- /.tr-post -->
+          </div>
+
+          <button class="btn btn-default" (click)="like()"><i class="fa fa-thumbs-up"></i> {{video.likes}}</button>
+          <button class="btn btn-default" (click)="dislike()"><i class="fa fa-thumbs-down"></i> {{video.dislikes}}</button>
+
+
+        </div>
 
         <div class="tr-details">
 

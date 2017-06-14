@@ -17,13 +17,15 @@ import {UsersService} from './services/users.service';
 import {AlertService} from './services/alert.service';
 import {CategoriesService} from './services/categories.service';
 import {VideosService} from './services/videos.service';
+import {SocketService} from './services/socket.service';
 
 const services = [
   AuthService,
   UsersService,
   AlertService,
   CategoriesService,
-  VideosService
+  VideosService,
+  SocketService
 ];
 
 // Helpers

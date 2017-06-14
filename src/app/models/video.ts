@@ -16,6 +16,9 @@ export class Video {
   public category: Category;
   public comments: Array<Comment> = [];
 
+  public likes: number = 0;
+  public dislikes: number = 0;
+
   public createdAt: string;
 
 
@@ -24,15 +27,18 @@ export class Video {
     this.name = data.name || '';
     this.description = data.description || '';
     this.thumb = data.thumb || '';
-    this.views = data.views || '';
+    this.views = data.views || 0;
     this.stream = data.stream || '';
     this.owner = new User(data.owner);
     this.category = new Category(data.category);
 
     const comments = data.comments || [];
     for (let i in comments) {
-      this.comments[i] = new Comment(data.comments[i]);
+      this.comments[i] = new Comment(comments[i]);
     }
+
+    this.likes = data.likes || 0;
+    this.dislikes = data.dislikes || 0;
 
     this.createdAt = data.createdAt || '';
   }
