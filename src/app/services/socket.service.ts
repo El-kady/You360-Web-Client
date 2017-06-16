@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {AuthService} from './auth.service';
 import {User} from '../models/user';
+import {Config} from '../app.constants';
 
 import * as io from 'socket.io-client';
 
@@ -13,9 +14,7 @@ export class SocketService {
 
   constructor(private _auth: AuthService) {
     this._auth.currentUser.subscribe((user: User) => this.currentUser = user);
-    const socketUrl = 'http://localhost:3000';
-    console.log('io.connect');
-    this.socket = io.connect(socketUrl);
+    this.socket = io.connect(Config.SOCKET_ENDPOINT);
   }
 
   listen(event): Observable<any> {
