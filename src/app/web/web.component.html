@@ -1,6 +1,6 @@
 <div class="main-wrapper tr-page-top">
   <div class="container-fluid">
-    <div class="tr-topbar clearfix">
+    <div class="tr-topbar clearfix margin-bottom-0">
       <div class="row">
         <div class="col-sm-3">
           <a class="navbar-brand" [routerLink]="['']">
@@ -42,6 +42,39 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="tr-menu menu-responsive">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- /navbar-header -->
+
+        <div class="collapse navbar-left navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+              <a [routerLink]="['']">Home</a>
+            </li>
+            <li *ngFor="let category of categories">
+              <a [routerLink]="['/category',category.getID()]">{{category.name}}</a>
+            </li>
+
+          </ul>
+        </div>
+        <ul class="feed pull-right">
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+        </ul>
+      </nav><!-- navbar -->
     </div>
 
     <app-alert></app-alert>

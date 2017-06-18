@@ -9,6 +9,7 @@ import {AuthService} from '../../../services/auth.service';
 import {AlertService} from '../../../services/alert.service';
 import {SocketService} from '../../../services/socket.service';
 
+import {Page} from '../../../helpers/page';
 
 @Component({
   selector: 'app-view',
@@ -21,6 +22,9 @@ export class ViewComponent implements OnInit, OnDestroy {
   public commentModel: any = {};
   public commentLoading = false;
 
+  private page = new Page();
+  private recommended_videos = new Array();
+
   constructor(private _videos: VideosService,
               private router: Router,
               private _auth: AuthService,
@@ -28,6 +32,8 @@ export class ViewComponent implements OnInit, OnDestroy {
               private _socket: SocketService,
               private route: ActivatedRoute) {
     this._auth.currentUser.subscribe((user: User) => this.currentUser = user);
+    this.page.pageNumber = 0;
+    this.page.size = 10;
   }
 
   ngOnInit() {
@@ -60,6 +66,8 @@ export class ViewComponent implements OnInit, OnDestroy {
         this._socket.listen(`${this.video.getID()}_views`).subscribe((data) => {
           this.video.views = data;
         });
+
+        this.setPage({offset: 0});
 
       });
     });
@@ -97,6 +105,14 @@ export class ViewComponent implements OnInit, OnDestroy {
     //     this.commentLoading = false;
     //   }
     // );
+  }
+
+  setPage(pageInfo) {
+    this.page.pageNumber = pageInfo.offset;
+    this._videos.recommendedList(this.video.getID(), this.page).subscribe(pagedData => {
+      this.page = pagedData.page;
+      this.recommended_videos = pagedData.data;
+    });
   }
 
   ngOnDestroy() {

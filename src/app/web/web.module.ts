@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ngx-bootstrap';
 import {SelectModule} from 'ng2-select';
+import {RlTagInputModule} from 'angular2-tag-input';
 
 import {FileUploadModule} from 'ng2-file-upload';
 
@@ -23,6 +24,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {UploadComponent} from './pages/upload/upload.component';
 import {ChannelComponent} from './pages/channel/channel.component';
+import {CategoryComponent} from './pages/category/category.component';
 import {ViewComponent} from './pages/view/view.component';
 import {PlayerComponent} from '../components/player/player.component';
 
@@ -32,7 +34,8 @@ const pages = [
   RegisterComponent,
   UploadComponent,
   ViewComponent,
-  ChannelComponent
+  ChannelComponent,
+  CategoryComponent
 ];
 
 @NgModule({
@@ -45,6 +48,7 @@ const pages = [
     WebRoutingModule,
     Ng2BootstrapModule.forRoot(),
     SelectModule,
+    RlTagInputModule
   ],
   declarations: [
     WebComponent,

@@ -32,8 +32,8 @@ export class VideosService {
     return this.authHttp.delete(Config.API_ENDPOINT + '/api/videos/' + id).map(res => res.json());
   }
 
-  public list(page: Page) {
-    return this.authHttp.get(Config.API_ENDPOINT + '/api/videos?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
+  public list(page: Page, sort = 'createdAt') {
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/videos?sort=' + sort + '&page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
       res => {
         const data = res.json();
         let pagedData = new PagedData<Video>();
@@ -42,7 +42,13 @@ export class VideosService {
         page.totalPages = data.pages;
 
         pagedData.page = page;
-        pagedData.data = data.docs;
+
+        let docs = [];
+        for (let i in data.docs) {
+          docs[i] = new Video(data.docs[i]);
+        }
+
+        pagedData.data = docs;
 
         return pagedData;
       }
@@ -51,6 +57,52 @@ export class VideosService {
 
   public userList(id, page: Page) {
     return this.authHttp.get(Config.API_ENDPOINT + '/api/users/' + id + '/videos/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
+      res => {
+        const data = res.json();
+        let pagedData = new PagedData<Video>();
+
+        page.totalElements = data.total;
+        page.totalPages = data.pages;
+
+        pagedData.page = page;
+
+        let docs = [];
+        for (let i in data.docs) {
+          docs[i] = new Video(data.docs[i]);
+        }
+
+        pagedData.data = docs;
+
+        return pagedData;
+      }
+    );
+  }
+
+  public categoryList(id, page: Page) {
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/categories/' + id + '/videos/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
+      res => {
+        const data = res.json();
+        let pagedData = new PagedData<Video>();
+
+        page.totalElements = data.total;
+        page.totalPages = data.pages;
+
+        pagedData.page = page;
+
+        let docs = [];
+        for (let i in data.docs) {
+          docs[i] = new Video(data.docs[i]);
+        }
+
+        pagedData.data = docs;
+
+        return pagedData;
+      }
+    );
+  }
+
+  public recommendedList(id, page: Page) {
+    return this.authHttp.get(Config.API_ENDPOINT + '/api/videos/' + id + '/similar/?page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
       res => {
         const data = res.json();
         let pagedData = new PagedData<Video>();

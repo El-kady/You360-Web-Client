@@ -15,11 +15,13 @@ import {AccountComponent} from './account.component';
 
 import {OverviewComponent} from './overview/overview.component';
 import {GeneralComponent} from './general/general.component';
+import {PasswordComponent} from './password/password.component';
 
 
 const pages = [
   OverviewComponent,
-  GeneralComponent
+  GeneralComponent,
+  PasswordComponent
 ];
 
 @NgModule({

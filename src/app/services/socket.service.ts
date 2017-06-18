@@ -49,6 +49,10 @@ export class SocketService {
     this.socket.emit('view video', {videoId: videoId});
   }
 
+  statistics() {
+    this.socket.emit('statistics');
+  }
+
   // Handle connection opening
   private connect() {
     console.log(`Connected to socket`);

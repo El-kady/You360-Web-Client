@@ -10,6 +10,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {UploadComponent} from './pages/upload/upload.component';
 import {ChannelComponent} from './pages/channel/channel.component';
 import {ViewComponent} from './pages/view/view.component';
+import {CategoryComponent} from './pages/category/category.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,11 @@ export const routes: Routes = [
         canActivate: [CanActivateGuard],
         component: ChannelComponent,
         path: 'channel/:id',
+      },
+      {
+        canActivate: [CanActivateGuard],
+        component: CategoryComponent,
+        path: 'category/:id',
       },
       {
         canActivate: [CanActivateGuard],

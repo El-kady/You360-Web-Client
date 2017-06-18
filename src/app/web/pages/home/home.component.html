@@ -1,1 +1,35 @@
-home
+<div class="tr-section">
+  <div class="section-title title-before">
+    <h1>
+      recent videos
+    </h1>
+  </div>
+
+  <div class="medium-post-content row">
+
+    <div *ngFor="let row of recent" class="col-md-3 left-post">
+      <div class="tr-post">
+        <app-video-item [video]="row"></app-video-item>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="tr-section">
+  <div class="section-title title-before">
+    <h1>
+      hot videos
+    </h1>
+  </div>
+
+  <div class="medium-post-content row">
+
+    <div *ngFor="let row of hot" class="col-md-3 left-post">
+      <div class="tr-post">
+        <app-video-item [video]="row"></app-video-item>
+      </div>
+    </div>
+
+  </div>
+</div>

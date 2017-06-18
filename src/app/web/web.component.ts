@@ -1,8 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {User} from '../models/user';
+import {Category} from '../models/category';
 
 import {AuthService} from '../services/auth.service';
+import {CategoriesService} from '../services/categories.service';
+import {Page} from '../helpers/page';
 
 @Component({
   selector: 'app-web',
@@ -10,17 +14,32 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./web.component.css']
 })
 
-export class WebComponent {
-  private currentUser: User = new User();
-  private searchInputExpanded = false;
+export class WebComponent implements OnInit {
+  public categoriesPage = new Page();
+  public categories = new Array();
 
-  constructor(private _auth: AuthService) {
+  public currentUser: User = new User();
+  public searchInputExpanded = false;
+
+  constructor(
+    private _auth: AuthService,
+    private _categories: CategoriesService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this._auth.currentUser.subscribe((user: User) => this.currentUser = user);
+    this.categoriesPage.pageNumber = 0;
+    this.categoriesPage.size = 10;
+  }
+
+  public ngOnInit() {
+    this._categories.list(this.categoriesPage).subscribe(pagedData => {
+      this.categories = pagedData.data;
+    });
   }
 
   toggleSearchInput() {
     this.searchInputExpanded = !this.searchInputExpanded;
   }
-
 
 }

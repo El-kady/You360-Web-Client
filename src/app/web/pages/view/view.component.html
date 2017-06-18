@@ -32,7 +32,6 @@
           <button class="btn btn-default" (click)="like()"><i class="fa fa-thumbs-up"></i> {{video.likes}}</button>
           <button class="btn btn-default" (click)="dislike()"><i class="fa fa-thumbs-down"></i> {{video.dislikes}}</button>
 
-
         </div>
 
         <div class="tr-details">
@@ -89,8 +88,15 @@
   <div class="col-sm-3 tr-sidebar tr-sticky">
     <div class="theiaStickySidebar">
 
-      <div class="tr-section tr-widget tr-ad ad-before">
-        ADS
+      <div class="tr-section tr-widget">
+        <div class="widget-title">
+          <span>recommended videos</span>
+        </div>
+        <ul class="medium-post-list">
+          <li *ngFor="let row of recommended_videos" class="tr-post">
+            <app-video-item [video]="row"></app-video-item>
+          </li>
+        </ul>
       </div>
 
     </div>

@@ -41,7 +41,12 @@ export class CategoriesService {
         page.totalPages = data.pages;
 
         pagedData.page = page;
-        pagedData.data = data.docs;
+
+        let docs = [];
+        for (let i in data.docs) {
+          docs[i] = new Category(data.docs[i]);
+        }
+        pagedData.data = docs;
 
         return pagedData;
       }

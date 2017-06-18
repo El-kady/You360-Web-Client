@@ -1,4 +1,3 @@
-
 <div class="tr-section tr-section-padding">
 
   <div *ngIf="!uploading" class="text-center">
@@ -17,14 +16,12 @@
       <input type="file" ng2FileSelect [uploader]="uploader"/>
     </div>
 
-
   </div>
 
   <form *ngIf="uploading" (ngSubmit)="f.form.valid && publish()" #f="ngForm" novalidate>
 
     <tabset>
       <tab heading="Basic info">
-
 
         <div class="row">
           <div class="col-md-9">
@@ -57,6 +54,10 @@
           <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
         </div>
 
+        <div class="form-group">
+          <rl-tag-input [(ngModel)]="model.tags" placeholder="Tags"></rl-tag-input>
+        </div>
+
       </tab>
     </tabset>
 
@@ -77,8 +78,5 @@
 
 
   </form>
-
-
-
 
 </div>
