@@ -11,6 +11,8 @@ import {CategoriesComponent} from './pages/categories/categories.component';
 import {CategoryFormComponent} from './pages/categories/category-form/category-form.component';
 import {VideosComponent} from './pages/videos/videos.component';
 import {VideoFormComponent} from './pages/videos/video-form/video-form.component';
+import {ReportsComponent} from './pages/reports/reports.component';
+import {ReportsViewComponent} from './pages/reports/view/view.component';
 
 export const routes: Routes = [
   {
@@ -53,6 +55,15 @@ export const routes: Routes = [
       {
         component: VideoFormComponent,
         path: 'videos/:id'
+      },
+      {
+        component: ReportsComponent,
+        path: 'reports',
+        pathMatch: 'full'
+      },
+      {
+        component: ReportsViewComponent,
+        path: 'reports/:id'
       },
       {
         path: '',

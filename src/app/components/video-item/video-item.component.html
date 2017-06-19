@@ -7,14 +7,14 @@
   </div>
 </div>
 <div class="post-content">
-  <div class="author">
+  <div *ngIf="video.owner.getID() && video.owner.getImage()" class="author">
     <a [routerLink]="['/channel',video.owner.getID()]">
       <img class="img-responsive img-circle" [src]="video.owner.getImage()">
     </a>
   </div>
   <div class="entry-meta">
     <ul>
-      <li>By <a [routerLink]="['/channel',video.owner.getID()]">{{video.owner.getName()}}</a></li>
+      <li *ngIf="video.owner.getID()">By <a [routerLink]="['/channel',video.owner.getID()]">{{video.owner.getName()}}</a></li>
       <li></li>
     </ul>
   </div>

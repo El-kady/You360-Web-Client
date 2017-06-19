@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ngx-bootstrap';
 import {SelectModule} from 'ng2-select';
-import {RlTagInputModule} from 'angular2-tag-input';
+import {TagInputModule} from 'ng2-tag-input';
+
 
 import {FileUploadModule} from 'ng2-file-upload';
 
@@ -48,7 +49,7 @@ const pages = [
     WebRoutingModule,
     Ng2BootstrapModule.forRoot(),
     SelectModule,
-    RlTagInputModule
+    TagInputModule
   ],
   declarations: [
     WebComponent,

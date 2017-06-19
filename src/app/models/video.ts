@@ -29,7 +29,7 @@ export class Video {
     this.thumb = data.thumb || '';
     this.views = data.views || 0;
     this.stream = data.stream || '';
-    this.owner = new User(data.owner);
+    this.owner = (data.owner) ? new User(data.owner) : new User({});
     this.category = new Category(data.category);
 
     const comments = data.comments || [];

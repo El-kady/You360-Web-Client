@@ -40,6 +40,13 @@ export class UserFormComponent implements OnInit {
     ]],
   };
 
+  public rolesList = [
+    {id : 'Member', text: 'Member'},
+    {id : 'Client', text: 'Client'},
+    {id : 'Owner', text: 'Owner'},
+    {id : 'Admin', text: 'Admin'},
+  ];
+
   constructor(formBuilder: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
@@ -70,6 +77,10 @@ export class UserFormComponent implements OnInit {
 
   public setImage(image) {
     this.user.image = image;
+  }
+
+  public selectRole(value: any): void {
+    this.user.role = value.id;
   }
 
   public save() {

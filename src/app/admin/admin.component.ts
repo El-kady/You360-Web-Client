@@ -30,6 +30,11 @@ export class AdminComponent {
       route: '/admin/videos'
     },
     {
+      title: 'Reports',
+      icon: 'fa-warning',
+      route: '/admin/reports'
+    },
+    {
       title: 'Users',
       icon: 'fa-users',
       route: '/admin/users'

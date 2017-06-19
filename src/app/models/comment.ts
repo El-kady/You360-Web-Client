@@ -10,7 +10,7 @@ export class Comment {
   public constructor(data: any = {}) {
     this._id = data._id || '';
     this.comment = data.comment || '';
-    this.owner = new User(data.owner);
+    this.owner = (data.owner) ? new User(data.owner) : new User({});
   }
 
 }

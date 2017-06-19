@@ -759,7 +759,7 @@ ul.sub-menu .sub-menu-2 {
 
 .tr-topbar .topbar-right {
 	text-align: right;
-    border-left: 1px solid #f0f3f5;
+    /*border-left: 1px solid #f0f3f5;*/
     width: 42%;
     float: right;
 }
@@ -2538,6 +2538,15 @@ a:hover i.fa-rss,
 	margin-bottom: 20px;
 }
 
+.tr-toolbar {
+}
+
+.tr-report{
+  margin-top:20px;
+  padding: 10px 10px 10px 10px;
+  background: rgba(255, 0, 0, 0.20);
+}
+
 .post-inner-image {
 	overflow: hidden;
 	margin: 30px 0 15px;
@@ -2675,7 +2684,7 @@ a:hover i.fa-rss,
 }
 
 textarea.form-control {
-	height: 145px;
+	height: 80px;
 	resize: none;
 }
 

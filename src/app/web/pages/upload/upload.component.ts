@@ -14,7 +14,6 @@ import {VideosService} from '../../../services/videos.service';
 import {AlertService} from '../../../services/alert.service';
 
 const URL = Config.API_ENDPOINT + '/api/videos/upload';
-const AUTHTOKEN = localStorage.getItem('token');
 
 @Component({
   selector: 'app-upload',
@@ -23,14 +22,15 @@ const AUTHTOKEN = localStorage.getItem('token');
 })
 
 export class UploadComponent implements OnInit, OnDestroy {
-  model: any = {};
+  model: any = {tags: []};
+  tmp = {tags: []};
   loading = false;
   imagePreview = '';
 
   public uploader: FileUploader = new FileUploader(
     {
       url: URL,
-      authToken: AUTHTOKEN,
+      authToken: localStorage.getItem('token'),
       itemAlias: 'video'
     }
   );
@@ -90,9 +90,12 @@ export class UploadComponent implements OnInit, OnDestroy {
   }
 
   public publish() {
+    for (let i = 0; i < this.tmp.tags.length; i++) {
+      this.model.tags.push(this.tmp.tags[i].value);
+    }
+    console.log(this.model)
     this._videos.add(this.model).subscribe(
       data => {
-        console.log(data)
         this.router.navigate(['']);
       },
       error => {

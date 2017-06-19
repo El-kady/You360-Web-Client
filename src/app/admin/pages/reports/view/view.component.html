@@ -1,0 +1,31 @@
+<div class="tr-section">
+  <div class="section-title">
+    <h1><i class="fa fa-warning"></i> {{report.name}}</h1>
+  </div>
+
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>{{report.name}}</th>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <th>{{report.email}}</th>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <th>{{report.description}}</th>
+    </tr>
+  </table>
+
+  <p>
+    <button md-icon-button (click)="approve()">
+      <i class="fa fa-check"></i> Approve
+    </button>
+    <button md-icon-button (click)="remove()">
+      <i class="fa fa-remove"></i> Remove
+    </button>
+  </p>
+
+</div>

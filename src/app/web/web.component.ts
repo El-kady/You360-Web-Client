@@ -27,15 +27,21 @@ export class WebComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this._auth.currentUser.subscribe((user: User) => this.currentUser = user);
     this.categoriesPage.pageNumber = 0;
     this.categoriesPage.size = 10;
+
+    this._auth.currentUser.subscribe((user: User) => {
+      this.currentUser = user;
+      if (this.currentUser.logged) {
+        this._categories.list(this.categoriesPage).subscribe(pagedData => {
+          this.categories = pagedData.data;
+        });
+      }
+    });
   }
 
   public ngOnInit() {
-    this._categories.list(this.categoriesPage).subscribe(pagedData => {
-      this.categories = pagedData.data;
-    });
+
   }
 
   toggleSearchInput() {

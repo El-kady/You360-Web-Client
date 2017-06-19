@@ -11,11 +11,13 @@ import {AuthService} from '../../services/auth.service';
 
 export class UserMenuComponent implements OnInit {
   @Input() user;
+  public image = '';
 
   constructor(private _auth: AuthService) {
   }
 
   ngOnInit() {
+    this.image = (this.user.getImage() === '') ? 'assets/images/avatar-default.png' : this.user.getImage();
   }
 
   logout() {

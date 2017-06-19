@@ -24,19 +24,59 @@
                 </li>
               </ul>
             </div>
+
             <h2 class="entry-title">
               {{video.name}}
             </h2>
+
           </div>
+        </div>
 
-          <button class="btn btn-default" (click)="like()"><i class="fa fa-thumbs-up"></i> {{video.likes}}</button>
-          <button class="btn btn-default" (click)="dislike()"><i class="fa fa-thumbs-down"></i> {{video.dislikes}}</button>
+        <div class="tr-toolbar">
+          <button class="btn btn-sm btn-default" (click)="like()"><i class="fa fa-thumbs-up"></i> {{video.likes}}
+          </button>
+          <button class="btn btn-sm btn-default" (click)="dislike()"><i class="fa fa-thumbs-down"></i>
+            {{video.dislikes}}
+          </button>
 
+          <button class="btn btn-sm btn-danger pull-right" (click)="openReport()"><i class="fa fa-warning"></i> Report
+          </button>
+        </div>
+
+        <div *ngIf="reportFormVisible" class="tr-report">
+          <form (ngSubmit)="reportf.form.valid && report()" #reportf="ngForm" novalidate>
+
+            <div class="form-group" [ngClass]="{ 'has-error': reportf.submitted && !name.valid }">
+              <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="reportModel.name"
+                     #name="ngModel" required/>
+              <div *ngIf="reportf.submitted && !name.valid" class="help-block">Name is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': reportf.submitted && !email.valid }">
+              <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="reportModel.email"
+                     #email="ngModel" required/>
+              <div *ngIf="reportf.submitted && !email.valid" class="help-block">Email is required</div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': reportf.submitted && !description.valid }">
+              <textarea class="form-control" rows="3" name="description" placeholder="Description"
+                        [(ngModel)]="reportModel.description"
+                        #description="ngModel" required></textarea>
+              <div *ngIf="reportf.submitted && !description.valid" class="help-block">Description is required</div>
+            </div>
+
+            <div class="form-group">
+              <button [disabled]="reportLoading" class="btn btn-primary">
+                <i *ngIf="reportLoading" class="fa fa-circle-o-notch fa-spin fa-fw"></i> Send Report
+              </button>
+            </div>
+          </form>
         </div>
 
         <div class="tr-details">
-
+          {{video.description}}
         </div>
+
       </div>
 
       <div class="tr-comment">
@@ -70,7 +110,8 @@
             <div class="col-sm-12">
               <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !comment.valid }">
                 <label>Your Text</label>
-                <textarea [(ngModel)]="commentModel.comment" #comment="ngModel" name="comment" required class="form-control" rows="3"></textarea>
+                <textarea [(ngModel)]="commentModel.comment" #comment="ngModel" name="comment" required
+                          class="form-control" rows="3"></textarea>
                 <div *ngIf="f.submitted && !comment.valid" class="help-block">Message is required</div>
               </div>
             </div>

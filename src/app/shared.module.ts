@@ -6,10 +6,9 @@ import {FormsModule} from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 
 import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({noTokenScheme: true}), http, options);
+  return new AuthHttp(new AuthConfig({noTokenScheme: true,noClientCheck: true}), http, options);
 }
 
 import {AuthService} from './services/auth.service';
@@ -18,6 +17,7 @@ import {AlertService} from './services/alert.service';
 import {CategoriesService} from './services/categories.service';
 import {VideosService} from './services/videos.service';
 import {SocketService} from './services/socket.service';
+import {ReportsService} from './services/reports.service';
 
 const services = [
   AuthService,
@@ -25,7 +25,8 @@ const services = [
   AlertService,
   CategoriesService,
   VideosService,
-  SocketService
+  SocketService,
+  ReportsService,
 ];
 
 // Helpers

@@ -5,6 +5,7 @@ import {User} from '../../../models/user';
 import {Video} from '../../../models/video';
 import {Comment} from '../../../models/comment';
 import {VideosService} from '../../../services/videos.service';
+import {ReportsService} from '../../../services/reports.service';
 import {AuthService} from '../../../services/auth.service';
 import {AlertService} from '../../../services/alert.service';
 import {SocketService} from '../../../services/socket.service';
@@ -19,13 +20,19 @@ import {Page} from '../../../helpers/page';
 export class ViewComponent implements OnInit, OnDestroy {
   private currentUser: User = new User();
   public video: Video = new Video();
+
   public commentModel: any = {};
   public commentLoading = false;
+
+  public reportModel: any = {};
+  public reportLoading = false;
+  public reportFormVisible = false;
 
   private page = new Page();
   private recommended_videos = new Array();
 
   constructor(private _videos: VideosService,
+              private _reports: ReportsService,
               private router: Router,
               private _auth: AuthService,
               private _alert: AlertService,
@@ -41,6 +48,7 @@ export class ViewComponent implements OnInit, OnDestroy {
       const id = params['id'];
       this._videos.get(id).subscribe(videoData => {
         this.video = new Video(videoData);
+        this.reportModel.video = this.video.getID();
         console.log(videoData);
         console.log(this.video);
 
@@ -88,6 +96,23 @@ export class ViewComponent implements OnInit, OnDestroy {
     // this.video.liked=false;
     // this.video.disliked=true;
     this._socket.dislikeVideo(this.video.getID());
+  }
+
+  report(){
+    this.reportLoading = true;
+    this._reports.add(this.reportModel).subscribe(
+      data => {
+        this.reportFormVisible = false;
+      },
+      error => {
+        this._alert.error(error.json());
+        this.reportLoading = false;
+      }
+    );
+  }
+
+  openReport() {
+    this.reportFormVisible = true;
   }
 
   public addComment() {
