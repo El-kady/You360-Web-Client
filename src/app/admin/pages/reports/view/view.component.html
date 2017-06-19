@@ -6,6 +6,14 @@
 
   <table class="table">
     <tr>
+      <th>Video</th>
+      <th>
+        <a [routerLink]="['/video', report.video._id]">
+          {{report.video.name}}
+        </a>
+      </th>
+    </tr>
+    <tr>
       <th>Name</th>
       <th>{{report.name}}</th>
     </tr>

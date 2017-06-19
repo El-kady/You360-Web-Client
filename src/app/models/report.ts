@@ -5,6 +5,7 @@ export class Report {
   public name: string;
   public email: string;
   public description: string;
+  public video: any =  {};
   public approved: boolean =  false;
 
   public constructor(data: any = {}) {
@@ -12,6 +13,7 @@ export class Report {
     this.name = data.name || '';
     this.email = data.email || '';
     this.description = data.description || '';
+    this.video = data.video || {};
     this.approved = data.approved || '';
   }
 

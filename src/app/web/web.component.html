@@ -9,8 +9,6 @@
         </div>
         <div class="col-sm-9">
 
-
-
           <div class="topbar-right">
             <app-user-menu [user]="currentUser"></app-user-menu>
 
@@ -35,7 +33,17 @@
               </ul>
               <div class="search">
                 <form role="form">
-                  <input type="text" class="search-form" autocomplete="off" placeholder="Type & Press Enter">
+                  <input [(ngModel)]="asyncSelected"
+                         [typeahead]="dataSource"
+                         (typeaheadLoading)="changeTypeaheadLoading($event)"
+                         (typeaheadNoResults)="changeTypeaheadNoResults($event)"
+                         (typeaheadOnSelect)="typeaheadOnSelect($event)"
+                         typeaheadOptionsLimit="10"
+                         typeaheadOptionField="name"
+                         name="query"
+                         placeholder="Search"
+                         class="search-form"
+                         autocomplete="off">
                 </form>
               </div>
             </div>

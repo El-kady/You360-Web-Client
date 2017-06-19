@@ -127,4 +127,9 @@ export class VideosService {
   public addComment(id, data) {
     return this.authHttp.post(Config.API_ENDPOINT + '/api/videos/' + id + '/comments', JSON.stringify(data), this.headers).map(res => res.json());
   }
+
+  public search(query) {
+    return this.authHttp.post(Config.API_ENDPOINT + '/api/search/', {q: query}).map(res => res.json());
+  }
+
 }

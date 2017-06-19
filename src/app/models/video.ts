@@ -19,6 +19,7 @@ export class Video {
   public likes: number = 0;
   public dislikes: number = 0;
 
+  public violated: boolean = false;
   public createdAt: string;
 
 
@@ -40,6 +41,7 @@ export class Video {
     this.likes = data.likes || 0;
     this.dislikes = data.dislikes || 0;
 
+    this.violated = data.violated || false;
     this.createdAt = data.createdAt || '';
   }
 

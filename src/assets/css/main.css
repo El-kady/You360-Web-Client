@@ -4034,3 +4034,13 @@ a, .navbar-default li a i,
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
 }
+
+
+.violated-video{
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  background: black;
+  color: #ffffff;
+  padding: 50px;
+}
