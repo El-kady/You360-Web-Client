@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._videos.list(this.page).subscribe(pagedData => {
       this.recent = pagedData.data;
     });
-    this._videos.list(this.page,'views').subscribe(pagedData => {
+    this._videos.list(this.page, '-views').subscribe(pagedData => {
       this.hot = pagedData.data;
     });
   }
