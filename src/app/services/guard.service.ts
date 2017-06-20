@@ -21,14 +21,15 @@ export class CanActivateGuard implements CanActivate {
   }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.logged) {
-      this.router.navigate(['login']);
-    }
-    let roles = route.data['roles'] as Array<string>;
-    if (roles && roles.length) {
-      return roles.indexOf(this.role) > -1;
-    } else {
-      return this.logged;
-    }
+    return true;
+    // if (!this.logged) {
+    //   this.router.navigate(['login']);
+    // }
+    // let roles = route.data['roles'] as Array<string>;
+    // if (roles && roles.length) {
+    //   return roles.indexOf(this.role) > -1;
+    // } else {
+    //   return this.logged;
+    // }
   }
 }

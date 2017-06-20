@@ -32,7 +32,7 @@ export class VideosService {
     return this.authHttp.delete(Config.API_ENDPOINT + '/api/videos/' + id).map(res => res.json());
   }
 
-  public list(page: Page, sort = 'createdAt') {
+  public list(page: Page, sort = '-createdAt') {
     return this.authHttp.get(Config.API_ENDPOINT + '/api/videos?sort=' + sort + '&page=' + (page.pageNumber + 1) + '&limit=' + page.size).map(
       res => {
         const data = res.json();
